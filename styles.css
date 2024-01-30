@@ -144,6 +144,7 @@ animation: floatAnimation 1.8s ease-in-out infinite;
 .section-om-mig h2 {
     margin-left: 200px;
     margin-top: 40px;
+    font-size: 35px;
 }
 
 .container-om-mig {
@@ -227,6 +228,28 @@ animation: floatAnimation 1.8s ease-in-out infinite;
     }
   }
   
+
+  /*Sista section*/
+  .last-section {
+    display: flex;
+    justify-content: space-around;
+    text-align: justify;
+}
+
+.social-logos {
+    width: 35px;
+}
+
+.social-media-container {
+    background-color: rgb(5, 21, 55);
+    color: white;
+    padding: 20px;
+    width: 800px;
+    height: 2 00px;
+}
+
+
+
 
 
 /* FOOTER */
