@@ -115,23 +115,8 @@ h1, h2, h3, h4, h5, h6, p {
     background: linear-gradient(180deg, rgb(110, 193, 231), rgb(24, 55, 110));
     border-radius: 1100px;
 
-animation: floatAnimation 1.8s ease-in-out infinite;
+animation: floatAnimation 1.5s ease-in-out infinite;
 }
-
-
-@keyframes floatAnimation {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-
 
 
 /* OM MIG SECTION */
@@ -181,20 +166,25 @@ animation: floatAnimation 1.8s ease-in-out infinite;
 
 /* SKILLS */
 
+.section-skills {
+ display: flex;
+ justify-content: space-evenly;
+}
+
 .skills-logos {
     display: grid;
     grid-template-rows: 80px 80px 80px;
     grid-template-columns: 80px 80px 80px;
     margin-top: 50px;
     margin-left: 100px;
-    text-align: center;
-    align-items: center;
     gap: 40px;
 }
 
 .skills h2 {
-    margin-left: 200px;
+  text-align: justify;
   font-size: 35px;
+  margin-left: 200px;
+
 }
 
 
@@ -212,10 +202,9 @@ animation: floatAnimation 1.8s ease-in-out infinite;
     float: left; 
   
     /* Animering */
-    animation: floatAnimation 1.8s ease-in-out infinite;
+    animation: floatAnimation 2.5s ease-in-out infinite;
   }
   
-
   @keyframes floatAnimation {
     0% {
       transform: translateY(0);
@@ -234,6 +223,9 @@ animation: floatAnimation 1.8s ease-in-out infinite;
     display: flex;
     justify-content: space-around;
     text-align: justify;
+    border-top: #3498db solid 1px;
+    height: 200px;
+    padding-top: 30px;
 }
 
 .social-logos {
@@ -241,11 +233,9 @@ animation: floatAnimation 1.8s ease-in-out infinite;
 }
 
 .social-media-container {
-    background-color: rgb(5, 21, 55);
     color: white;
     padding: 20px;
     width: 800px;
-    height: 2 00px;
 }
 
 
@@ -259,5 +249,6 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+    border-top: #3498db 1px solid;
 }
 
