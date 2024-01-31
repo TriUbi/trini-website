@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .header {
-    background: linear-gradient(180deg, rgb(24, 55, 110), rgb(5, 21, 55));
+    background: transparent;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -45,7 +45,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 .navi a {
     text-decoration: none;
-    color: rgb(110, 193, 231);
+    color: white;
+    text-shadow: 0 0 10px blue;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 10px;
     font-size: 18px;
     font-weight: 600;
     margin-right: 20px;
@@ -57,42 +61,27 @@ h1, h2, h3, h4, h5, h6, p {
     background-image: url(/img/banner.jpg);
     background-attachment: fixed;
     background-size: cover;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
+    opacity: 0.8;
 }
 
-    .banner_text {
+.banner_text {
         padding: 40px;
         padding-top: 200px;
         font-size: 25px;
     }
-    .banner_text h1 {
-        text-shadow: 0 0 10px rgba(13, 64, 75, 0.8), 0 0 20px rgba(50, 137, 168, 0.999), 0 0 30px rgba(255, 255, 255, 0.4);
-    }
-    .banner_text h1, p {
-        margin-bottom: 10px;
-    }
-    
-    
-    .banner_button {
-        margin-top: 20px;
-        padding: 8px;
-        border-radius: 10px;
-        border: white 1px solid;
-        color: white;
-        background: linear-gradient(180deg, rgb(110, 193, 231), rgb(24, 55, 110));
-        cursor: pointer;
-        font-size: 16px;
-        
-    }
     
 .banner_text h1 {
-    text-shadow: 0 0 10px rgba(13, 64, 75, 0.8), 0 0 20px rgba(50, 137, 168, 0.999), 0 0 30px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.999), 0 0 30px rgba(0, 0, 0, 0.4);
+padding-top: 8%;
+color: white;
+
 }
 .banner_text h1, p {
     margin-bottom: 10px;
@@ -101,21 +90,15 @@ h1, h2, h3, h4, h5, h6, p {
 
 .banner_button {
     margin: 20px;
-    padding: 8px;
-    border-radius: 10px;
+    padding: 13px;
+    border-radius: 30px;
     border: white 1px solid;
     color: white;
-    background: linear-gradient(180deg, rgb(110, 193, 231), rgb(24, 55, 110));
+    background: transparent;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
     
-}
-
-.arrow-container {
-    background: linear-gradient(180deg, rgb(110, 193, 231), rgb(24, 55, 110));
-    border-radius: 1100px;
-
-animation: floatAnimation 1.5s ease-in-out infinite;
 }
 
 
