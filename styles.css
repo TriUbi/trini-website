@@ -237,6 +237,7 @@ animation: floatAnimation 1.5s ease-in-out infinite;
     border-top: #3498db solid 1px;
     height: 200px;
     padding-top: 30px;
+    margin-top: 190px;
 }
 
 .social-logos {
