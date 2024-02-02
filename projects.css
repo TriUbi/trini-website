@@ -52,32 +52,6 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 
-.projects-gallery-section {
-        background-image: url(/img/banner.jpg);
-        background-attachment: fixed;
-        background-size: cover;
-        height: 100vh;
-        display: flex;
-        color: white;
-        opacity: 0.8;
-        justify-content: center;
-}
-
-.projects-gallery-section img {
-    width: 300px;
-}
-
-.projects-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  margin: auto;
-}
-
-
-
-
-
 
 /*FOOOOTER*/
 .social-logos {
@@ -89,7 +63,6 @@ h1, h2, h3, h4, h5, h6, p {
    
 }
 
-
 footer {
     background: linear-gradient(180deg, rgb(24, 55, 110), rgb(5, 21, 55));
     color: white;
@@ -98,7 +71,7 @@ footer {
     padding: 10px;
     font-size: 15px;
     padding-top: 60px;
-    align-items: center;
+    align-items: center; 
 
 }
 
