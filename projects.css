@@ -17,6 +17,7 @@ h1, h2, h3, h4, h5, h6, p {
     flex-direction: column;
     width: 100%;
     background: linear-gradient(180deg, rgb(24, 55, 110), rgb(5, 21, 55));
+    padding-top: 150px;
 }
 
 .header {
@@ -49,6 +50,32 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 18px;
     font-weight: 600;
     margin-right: 20px;
+}
+
+/*CARDS*/
+
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.card {
+    width: 325px;
+    margin: 15px;
+    border: 1px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+.card img {
+    width: 300px;
+    height: auto;
+}
+.card .content {
+    padding: 20px;
 }
 
 
