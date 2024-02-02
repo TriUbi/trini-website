@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6, p {
     background-image: url(/img/banner.jpg);
     background-attachment: fixed;
     background-size: cover;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -109,4 +109,43 @@ button:hover {
     color: black;
     box-shadow: none;
     border: none;
+}
+
+
+
+/*foooooter*/
+
+
+.social-logos {
+    width: 35px;
+}
+
+.footer-content {
+    width: 100%;
+   
+}
+
+
+footer {
+    background: linear-gradient(180deg, rgb(24, 55, 110), rgb(5, 21, 55));
+    color: white;
+    width: 100%;
+    height: 230px;
+    padding: 10px;
+    font-size: 15px;
+    padding-top: 60px;
+    align-items: center;
+
+}
+
+.social-media-container  {
+    text-align: center;
+    padding-bottom: 20px;
+}
+.social-media-container h3 {
+    margin-bottom: 10px;
+}
+.rights-container {
+   text-align: center;
+   font-size: 13px;
 }
