@@ -258,3 +258,9 @@ footer {
    text-align: center;
    font-size: 13px;
 }
+
+@media (min-width: 481px) and (max-width:768px){
+
+
+    
+}
