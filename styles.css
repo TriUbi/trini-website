@@ -80,9 +80,16 @@ color: #3498db;
     align-items: start;
     color: white;
     text-align: center;
-    opacity: 0.8;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(53, 56, 83, 0.336);
+  }
 .banner_text {
         text-align: justify;
         font-family: 'Poppins', sans-serif;
@@ -260,9 +267,6 @@ footer {
 }
 
 @media (max-width:768px) and (min-width: 481px){
-
-
-
       
         .banner {
           height: 100vh;
@@ -338,30 +342,23 @@ footer {
      padding: 0;
    
    }
-   
    .logo-item {
     width: 90px;
        height: 90px;
-
-
 }
 .logos-img {
     width: 40px;
 }
 
 
-
 nav {
     display: flex;
     width: 100%;
-    
-}
-
-nav a {
+} nav a {
     
     padding: 5px;
     font-size: 15px;
     margin-right: 5px;
-    
 }
+
 }
