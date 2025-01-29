@@ -21,35 +21,36 @@ import {
   SiPostgresql,
   SiFirebase,
 } from "react-icons/si";
+import { useEffect, useState, useRef } from "react";
 
 const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
-  background: rgb(24, 55, 110);
+  background: rgba(24, 55, 110, 0.95);
 `;
 
 const AboutSection = styled.section`
-  padding: 100px 20px;
+  padding: 60px 20px;
   position: relative;
   z-index: 1;
 `;
 
 const AboutContent = styled.div`
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 40px;
 `;
 
 const AboutText = styled.div`
   color: white;
-  max-width: 800px;
+  max-width: 600px;
 `;
 
 const Title = styled.h2`
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
   color: white;
   position: relative;
   display: inline-block;
@@ -57,19 +58,19 @@ const Title = styled.h2`
   &:after {
     content: "";
     position: absolute;
-    bottom: -10px;
+    bottom: -8px;
     left: 0;
-    width: 150px;
-    height: 4px;
+    width: 120px;
+    height: 3px;
     background: white;
     border-radius: 2px;
   }
 `;
 
 const Description = styled.p`
-  font-size: 1.3rem;
-  line-height: 1.8;
-  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
   color: rgba(255, 255, 255, 0.9);
 `;
 
@@ -128,6 +129,12 @@ const StatNumber = styled.div`
   font-weight: bold;
   color: white;
   margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const StatLabel = styled.div`
@@ -142,12 +149,12 @@ const ImageSection = styled.section`
   background-attachment: fixed;
   background-size: cover;
   position: relative;
-  padding: 50px 20px 100px;
+  padding: 30px 20px 120px;
   z-index: 1;
   min-height: 60vh;
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 0;
 
   &:before {
     content: "";
@@ -156,17 +163,17 @@ const ImageSection = styled.section`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(53, 56, 83, 0.336);
+    background-color: rgba(53, 56, 83, 0.2);
     z-index: -1;
   }
 `;
 
 const ImageContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 400px 1fr;
+  grid-template-columns: 1fr 350px 1fr;
   gap: 10px;
   align-items: center;
   position: relative;
@@ -189,7 +196,7 @@ const SkillsRight = styled.div`
 
 const AboutImage = styled.img`
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   height: auto;
   object-fit: contain;
   z-index: 2;
@@ -199,8 +206,8 @@ const SkillBubble = styled.div`
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   position: absolute;
   animation: float ${(props) => props.duration}s ease-in-out infinite;
@@ -213,7 +220,7 @@ const SkillBubble = styled.div`
   transition: all 0.3s ease;
 
   svg {
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
 
   &:hover {
@@ -243,16 +250,72 @@ const SkillBubble = styled.div`
 `;
 
 const Home = () => {
+  const [counts, setCounts] = useState({
+    years: 0,
+    projects: 0,
+    contributions: 0,
+    engagement: 0,
+  });
+
+  const statsRef = useRef(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  const animateValue = (key, endValue, duration = 1500) => {
+    const steps = 30;
+    const stepDuration = duration / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current++;
+      if (current === steps) {
+        clearInterval(timer);
+        setCounts((prev) => ({ ...prev, [key]: endValue }));
+      } else {
+        const progress = current / steps;
+        const currentValue = Math.floor(endValue * progress);
+        setCounts((prev) => ({ ...prev, [key]: currentValue }));
+      }
+    }, stepDuration);
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+
+          // Animate each number with a delay
+          setTimeout(() => animateValue("years", 2, 1000), 0);
+          setTimeout(() => animateValue("projects", 15, 1500), 500);
+          setTimeout(() => animateValue("contributions", 380, 2000), 1000);
+          setTimeout(() => animateValue("engagement", 200, 1500), 1500);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [hasAnimated]);
+
   const skills = [
-    { name: "HTML5", icon: <FaHtml5 />, side: "left", position: 20 },
-    { name: "CSS3", icon: <FaCss3Alt />, side: "left", position: 40 },
-    { name: "JavaScript", icon: <FaJs />, side: "left", position: 60 },
-    { name: "React", icon: <FaReact />, side: "left", position: 80 },
-    { name: "TypeScript", icon: <SiTypescript />, side: "left", position: 100 },
-    { name: "Node.js", icon: <FaNodeJs />, side: "right", position: 10 },
-    { name: "Express", icon: <SiExpress />, side: "right", position: 30 },
-    { name: "MongoDB", icon: <SiMongodb />, side: "right", position: 50 },
-    { name: "PostgreSQL", icon: <SiPostgresql />, side: "right", position: 70 },
+    { name: "HTML5", icon: <FaHtml5 />, side: "left", position: 15 },
+    { name: "CSS3", icon: <FaCss3Alt />, side: "left", position: 35 },
+    { name: "JavaScript", icon: <FaJs />, side: "left", position: 55 },
+    { name: "React", icon: <FaReact />, side: "left", position: 75 },
+    { name: "TypeScript", icon: <SiTypescript />, side: "left", position: 95 },
+    { name: "Node.js", icon: <FaNodeJs />, side: "right", position: 15 },
+    { name: "Express", icon: <SiExpress />, side: "right", position: 35 },
+    { name: "MongoDB", icon: <SiMongodb />, side: "right", position: 55 },
+    { name: "PostgreSQL", icon: <SiPostgresql />, side: "right", position: 75 },
     { name: "Firebase", icon: <SiFirebase />, side: "right", position: 90 },
     { name: "Docker", icon: <FaDocker />, side: "right", position: 110 },
   ];
@@ -292,21 +355,21 @@ const Home = () => {
               ))}
             </SkillsContainer>
           </AboutText>
-          <StatsContainer>
+          <StatsContainer ref={statsRef}>
             <StatItem>
-              <StatNumber>2+</StatNumber>
+              <StatNumber>{counts.years}+</StatNumber>
               <StatLabel>Års Erfarenhet</StatLabel>
             </StatItem>
             <StatItem>
-              <StatNumber>15+</StatNumber>
+              <StatNumber>{counts.projects}+</StatNumber>
               <StatLabel>Projekt Genomförda</StatLabel>
             </StatItem>
             <StatItem>
-              <StatNumber>380+</StatNumber>
+              <StatNumber>{counts.contributions}+</StatNumber>
               <StatLabel>Kontributioner</StatLabel>
             </StatItem>
             <StatItem>
-              <StatNumber>200%</StatNumber>
+              <StatNumber>{counts.engagement}%</StatNumber>
               <StatLabel>Engagemang</StatLabel>
             </StatItem>
           </StatsContainer>
