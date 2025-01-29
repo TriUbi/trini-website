@@ -1,127 +1,101 @@
-import styled, { keyframes } from "styled-components";
-import bannerBg from "../assets/img/banner.jpg";
-import htmlLogo from "../assets/img/logos/html-5.png";
-import cssLogo from "../assets/img/logos/csslogo.png";
-import jsLogo from "../assets/img/logos/js.png";
-import sqlLogo from "../assets/img/logos/sql-server.png";
-import reactLogo from "../assets/img/logos/react.png";
-import gitLogo from "../assets/img/logos/git.png";
-import githubLogo from "../assets/img/logos/github.png";
-import wordpressLogo from "../assets/img/logos/wordpresslogo.png";
-import phpLogo from "../assets/img/logos/php.png";
-import nodejsLogo from "../assets/img/logos/nodejs.png";
+import styled from "styled-components";
+import { FaCode, FaServer, FaSearchengin } from "react-icons/fa";
 
 const SkillsSection = styled.section`
-  display: flex;
-  justify-content: space-evenly;
-  height: 800px;
-  background-image: url(${bannerBg});
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.8;
-
-  @media (max-width: 768px) {
-    height: auto;
-    padding: 40px 20px;
-    background-attachment: scroll;
-  }
+  padding: 100px 20px;
+  background: transparent;
+  position: relative;
+  z-index: 1;
 `;
 
-const Container = styled.div`
-  h3 {
-    font-size: 35px;
-    text-align: center;
-    padding: 20px;
-  }
-
-  @media (max-width: 768px) {
-    h3 {
-      font-size: 25px;
-      padding: 0;
-    }
-  }
+const SkillsContent = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
-const LogosGrid = styled.div`
+const SkillsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 80px);
-  margin-top: 60px;
-  gap: 60px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin: 20px auto;
-    max-width: 300px;
+    grid-template-columns: 1fr;
   }
 `;
 
-const float = keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-30px);
-  }
-  100% {
-    transform: translateY(0);
+const SkillCard = styled.div`
+  background: rgba(53, 56, 83, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
   }
 `;
 
-const LogoItem = styled.div`
-  background: linear-gradient(5deg, rgb(5, 21, 55), rgb(103, 149, 171));
-  border-radius: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 110px;
-  height: 110px;
-  margin: 10px;
-  animation: ${float} 2.5s ease-in-out infinite;
+const IconContainer = styled.div`
+  font-size: 2.5rem;
+  color: #3498db;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
 
-  img {
-    width: 60px;
-    height: auto;
+  ${SkillCard}:hover & {
+    color: #2ecc71;
   }
+`;
 
-  @media (max-width: 768px) {
-    width: 90px;
-    height: 90px;
-    margin: 5px;
+const SkillTitle = styled.h3`
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+`;
 
-    img {
-      width: 40px;
-    }
-  }
+const SkillDescription = styled.p`
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
 `;
 
 const Skills = () => {
-  const skills = [
-    { logo: htmlLogo, alt: "HTML5" },
-    { logo: cssLogo, alt: "CSS3" },
-    { logo: jsLogo, alt: "JavaScript" },
-    { logo: sqlLogo, alt: "SQL" },
-    { logo: reactLogo, alt: "React" },
-    { logo: gitLogo, alt: "Git" },
-    { logo: githubLogo, alt: "GitHub" },
-    { logo: wordpressLogo, alt: "WordPress" },
-    { logo: phpLogo, alt: "PHP" },
-    { logo: nodejsLogo, alt: "Node.js" },
+  const skillsData = [
+    {
+      icon: <FaCode />,
+      title: "Frontend",
+      description:
+        "Jag skapar responsiva och användarvänliga webbapplikationer med modern teknologi som React, TypeScript och Styled Components. Fokus ligger på användarupplevelse och tillgänglighet.",
+    },
+    {
+      icon: <FaServer />,
+      title: "Backend",
+      description:
+        "Jag utvecklar robusta och skalbara backend-lösningar med Node.js, Express och olika databaser. API-design och säkerhet är alltid i fokus.",
+    },
+    {
+      icon: <FaSearchengin />,
+      title: "SEO",
+      description:
+        "Jag optimerar webbplatser för bättre synlighet i sökmotorer genom teknisk SEO, innehållsoptimering och prestandaförbättringar.",
+    },
   ];
 
   return (
     <SkillsSection>
-      <Container>
-        <h3>Kompetenser</h3>
-        <LogosGrid>
-          {skills.map((skill, index) => (
-            <LogoItem key={index}>
-              <img src={skill.logo} alt={skill.alt} />
-            </LogoItem>
+      <SkillsContent>
+        <SkillsGrid>
+          {skillsData.map((skill, index) => (
+            <SkillCard key={index}>
+              <IconContainer>{skill.icon}</IconContainer>
+              <SkillTitle>{skill.title}</SkillTitle>
+              <SkillDescription>{skill.description}</SkillDescription>
+            </SkillCard>
           ))}
-        </LogosGrid>
-      </Container>
+        </SkillsGrid>
+      </SkillsContent>
     </SkillsSection>
   );
 };

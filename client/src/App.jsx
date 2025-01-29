@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
+import MagicCursor from "./components/MagicCursor";
+import { createGlobalStyle } from "styled-components";
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -13,10 +15,18 @@ const AppContainer = styled.div`
   flex-direction: column;
 `;
 
+const GlobalStyle = createGlobalStyle`
+  * {
+    cursor: none !important;
+  }
+`;
+
 const App = () => {
   return (
     <Router>
+      <GlobalStyle />
       <GlobalStyles />
+      <MagicCursor />
       <AppContainer>
         <Header />
         <Routes>
