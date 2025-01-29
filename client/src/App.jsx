@@ -4,6 +4,8 @@ import GlobalStyles from "./styles/GlobalStyles";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Projects from "./pages/Projects";
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -19,7 +21,8 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* Add more routes here later */}
+          <Route path="/kontakt" element={<Contact />} />
+          <Route path="/projekt" element={<Projects />} />
         </Routes>
         <Footer />
       </AppContainer>

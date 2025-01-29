@@ -49,6 +49,8 @@ const RightsContainer = styled.div`
 `;
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <FooterContainer>
       <FooterContent>
@@ -58,9 +60,10 @@ const Footer = () => {
           </Link>
           <SocialLinks>
             <a
-              href="mailto:triubilla@gmail.com"
+              href="mailto:triubilla@gmail.com?subject=Kontakt från Portfolio"
               target="_blank"
               rel="noopener noreferrer"
+              title="Skicka ett mail"
             >
               <SocialIcon src={emailIcon} alt="Email" />
             </a>
@@ -68,6 +71,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/%E2%9A%A1%EF%B8%8Ftrinidad-ubilla-46924429a/"
               target="_blank"
               rel="noopener noreferrer"
+              title="Besök LinkedIn profil"
             >
               <SocialIcon src={linkedinIcon} alt="LinkedIn" />
             </a>
@@ -75,6 +79,7 @@ const Footer = () => {
               href="https://github.com/TriUbi"
               target="_blank"
               rel="noopener noreferrer"
+              title="Besök GitHub profil"
             >
               <SocialIcon src={githubIcon} alt="GitHub" />
             </a>
@@ -82,7 +87,7 @@ const Footer = () => {
         </SocialContainer>
       </FooterContent>
       <RightsContainer>
-        <p>Trinidad Ubilla 2024 | © All rights reserved</p>
+        <p>Trinidad Ubilla {currentYear} | © All rights reserved</p>
       </RightsContainer>
     </FooterContainer>
   );

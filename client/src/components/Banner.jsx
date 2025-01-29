@@ -12,7 +12,6 @@ const BannerSection = styled.section`
   justify-content: center;
   align-items: start;
   color: white;
-  text-align: center;
   position: relative;
 `;
 
@@ -26,8 +25,7 @@ const Overlay = styled.div`
 `;
 
 const BannerText = styled.div`
-  text-align: justify;
-  max-width: 800px;
+  max-width: 600px;
   margin-bottom: 30px;
   margin-left: 100px;
   position: relative;
@@ -35,28 +33,33 @@ const BannerText = styled.div`
 
   h1 {
     font-size: 50px;
+    margin-bottom: 5px;
   }
 
   h3 {
     font-size: 35px;
     color: #3498db;
+    margin-bottom: 25px;
   }
 
   p {
     font-size: 20px;
+    line-height: 1.6;
   }
 
   @media (max-width: 768px) {
-    margin-left: 0;
-    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     text-align: center;
 
     h1 {
       font-size: 35px;
+      margin-bottom: 2px;
     }
 
     h3 {
       font-size: 25px;
+      margin-bottom: 20px;
     }
 
     p {
@@ -69,19 +72,17 @@ const ButtonContainer = styled.div`
   margin-left: 100px;
   position: relative;
   z-index: 1;
+  margin-top: 20px;
 
   @media (max-width: 768px) {
-    margin-left: 0;
+    margin-left: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
+    justify-content: center;
   }
 `;
 
 const Button = styled(Link)`
-  margin-right: 25px;
-  padding: 13px;
+  padding: 15px 30px;
   border-radius: 30px;
   border: white 1px solid;
   color: white;
@@ -90,10 +91,15 @@ const Button = styled(Link)`
   font-size: 17px;
   box-shadow: 0 0 10px rgb(255, 255, 255);
   display: inline-block;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 
   @media (max-width: 768px) {
-    margin-right: 0;
-    width: 200px;
+    padding: 12px 25px;
+    font-size: 16px;
   }
 `;
 
@@ -111,9 +117,6 @@ const Banner = () => {
       </BannerText>
       <ButtonContainer>
         <Button to="/contact">Kontakta mig!</Button>
-        <Button as="a" href="/documents/CV-LIA.pdf" download="LIA-CV-Trinidad">
-          Ladda ner CV!
-        </Button>
       </ButtonContainer>
     </BannerSection>
   );

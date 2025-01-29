@@ -57,9 +57,9 @@ const Header = () => {
         <img src={logo} alt="Trinidad Ubilla logo" />
       </Logo>
       <Nav>
-        <Link to="/">Home</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/contact">Contact</Link>
+        <Link to="/">Hem</Link>
+        <Link to="/projekt">Projekt</Link>
+        <Link to="/kontakt">Kontakt</Link>
       </Nav>
     </HeaderContainer>
   );
