@@ -78,7 +78,7 @@ const StatsGrid = styled.div`
   gap: 20px;
   margin-top: 30px;
 
-  @media (max-width: 700px) {
+  @media screen and (max-width: 700px) {
     display: none !important;
     visibility: hidden;
     height: 0;
@@ -86,6 +86,8 @@ const StatsGrid = styled.div`
     margin: 0;
     padding: 0;
     opacity: 0;
+    position: absolute;
+    pointer-events: none;
   }
 `;
 
@@ -93,8 +95,13 @@ const StatBox = styled.div`
   background-color: transparent;
   text-align: left;
 
-  @media (max-width: 700px) {
+  @media screen and (max-width: 700px) {
     display: none !important;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
   }
 `;
 
@@ -103,9 +110,8 @@ const StatNumber = styled.h3`
   color: #3498db;
   margin-bottom: 5px;
 
-  @media (max-width: 700px) {
-    font-size: 16px;
-    margin-bottom: 0;
+  @media screen and (max-width: 700px) {
+    display: none !important;
   }
 `;
 
@@ -115,9 +121,8 @@ const StatText = styled.p`
   text-transform: uppercase;
   letter-spacing: 1px;
 
-  @media (max-width: 700px) {
-    font-size: 10px;
-    letter-spacing: 0.5px;
+  @media screen and (max-width: 700px) {
+    display: none !important;
   }
 `;
 
@@ -171,24 +176,26 @@ const About = () => {
               umgås med mina nära och kära.
             </Description>
           </TextSection>
-          <StatsGrid>
-            <StatBox>
-              <StatNumber>2+</StatNumber>
-              <StatText>Års erfarenhet</StatText>
-            </StatBox>
-            <StatBox>
-              <StatNumber>15+</StatNumber>
-              <StatText>Projekt genomförda</StatText>
-            </StatBox>
-            <StatBox>
-              <StatNumber>380+</StatNumber>
-              <StatText>Kontributioner</StatText>
-            </StatBox>
-            <StatBox>
-              <StatNumber>200%</StatNumber>
-              <StatText>Engagemang</StatText>
-            </StatBox>
-          </StatsGrid>
+          {window.innerWidth > 700 && (
+            <StatsGrid>
+              <StatBox>
+                <StatNumber>2+</StatNumber>
+                <StatText>Års erfarenhet</StatText>
+              </StatBox>
+              <StatBox>
+                <StatNumber>15+</StatNumber>
+                <StatText>Projekt genomförda</StatText>
+              </StatBox>
+              <StatBox>
+                <StatNumber>380+</StatNumber>
+                <StatText>Kontributioner</StatText>
+              </StatBox>
+              <StatBox>
+                <StatNumber>200%</StatNumber>
+                <StatText>Engagemang</StatText>
+              </StatBox>
+            </StatsGrid>
+          )}
           <TechStack>
             <TechItem>HTML5</TechItem>
             <TechItem>CSS3</TechItem>
