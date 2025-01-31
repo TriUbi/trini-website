@@ -13,10 +13,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'profile.png') {
-            return 'favicon.[ext]';
+          if (assetInfo.name === "profile.png") {
+            return "favicon.[ext]";
           }
-          return 'assets/[name]-[hash][ext]';
+          return "assets/[name]-[hash][ext]";
         },
       },
     },

@@ -31,6 +31,13 @@ const AboutContent = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    gap: 20px;
+  }
+`;
+
+const TextSection = styled.div`
+  @media (max-width: 700px) {
+    margin-bottom: 15px;
   }
 `;
 
@@ -41,8 +48,8 @@ const Title = styled.h2`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 700px) {
-    font-size: 24px;
-    margin-bottom: 8px;
+    font-size: 20px;
+    margin-bottom: 5px;
   }
 `;
 
@@ -54,9 +61,9 @@ const Description = styled.p`
   max-width: 600px;
 
   @media (max-width: 700px) {
-    font-size: 13px;
-    line-height: 1.4;
-    margin-bottom: 8px;
+    font-size: 11px;
+    line-height: 1.3;
+    margin-bottom: 5px;
   }
 `;
 
@@ -69,8 +76,8 @@ const StatsGrid = styled.div`
   @media (max-width: 700px) {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin-top: 10px;
+    gap: 3px;
+    margin-top: 0;
   }
 `;
 
@@ -81,7 +88,7 @@ const StatBox = styled.div`
   @media (max-width: 700px) {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 `;
 
@@ -91,7 +98,7 @@ const StatNumber = styled.h3`
   margin-bottom: 5px;
 
   @media (max-width: 700px) {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 0;
   }
 `;
@@ -103,7 +110,7 @@ const StatText = styled.p`
   letter-spacing: 1px;
 
   @media (max-width: 700px) {
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.5px;
   }
 `;
@@ -117,8 +124,8 @@ const TechStack = styled.div`
   @media (max-width: 700px) {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin-top: 10px;
+    gap: 3px;
+    margin-top: 5px;
   }
 `;
 
@@ -131,9 +138,9 @@ const TechItem = styled.div`
   font-size: 14px;
 
   @media (max-width: 700px) {
-    font-size: 12px;
-    padding: 4px 8px;
-    border-radius: 12px;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 10px;
     text-align: left;
   }
 `;
@@ -143,16 +150,19 @@ const About = () => {
     <AboutSection>
       <AboutContainer>
         <AboutContent>
-          <Title>Om mig</Title>
-          <Description>
-            Jag är en person som älskar att lära mig nya saker varje dag. Om jag
-            faller, reser jag mig upp igen. Jag vill bidra till projekt och team
-            som har en tydlig vision och där alla medlemmar är viktiga.
-          </Description>
-          <Description>
-            På min fritid är jag en familjeperson som älskar att laga mat och
-            umgås med mina nära och kära.
-          </Description>
+          <TextSection>
+            <Title>Om mig</Title>
+            <Description>
+              Jag är en person som älskar att lära mig nya saker varje dag. Om
+              jag faller, reser jag mig upp igen. Jag vill bidra till projekt
+              och team som har en tydlig vision och där alla medlemmar är
+              viktiga.
+            </Description>
+            <Description>
+              På min fritid är jag en familjeperson som älskar att laga mat och
+              umgås med mina nära och kära.
+            </Description>
+          </TextSection>
           <StatsGrid>
             <StatBox>
               <StatNumber>2+</StatNumber>
