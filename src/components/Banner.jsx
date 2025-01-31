@@ -93,6 +93,7 @@ const Button = styled(Link)`
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
+  text-align: center;
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -133,11 +134,11 @@ const Banner = () => {
     <BannerSection>
       <Overlay />
       <BannerText>
-        <h1>Trinidad Ubilla.</h1>
+        <h1>Trinidad Ubilla</h1>
         <h3>Fullstack Utvecklare</h3>
         <p>
-          Söker du en entusiastisk fullstack-utvecklare med problemlösningsfokus
-          och önskan att bidra till framgångsrika projekt?
+          Söker du en flexibel fullstack-utvecklare med problemlösningsfokus och
+          önskan att bidra till framgångsrika projekt?
         </p>
       </BannerText>
       <ButtonContainer>
