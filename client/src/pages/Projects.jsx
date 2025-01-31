@@ -125,6 +125,8 @@ const Projects = () => {
         "Ett projekthanteringssystem med realtidsuppdateringar och team-samarbetsfunktioner.",
       color: "#8e44ad",
       tech: [SiReact, SiNodedotjs, SiPostgresql, SiDocker],
+      githubLink: "",
+      demoLink: "",
       hasDemo: false,
     },
     {
@@ -133,6 +135,8 @@ const Projects = () => {
         "Ett bokningssystem för tjänster med kalendersync och automatiska påminnelser.",
       color: "#27ae60",
       tech: [SiReact, SiNodedotjs, SiMongodb],
+      githubLink: "",
+      demoLink: "",
       hasDemo: false,
     },
     {
@@ -141,6 +145,9 @@ const Projects = () => {
         "En dashboard för att hantera och analysera sociala medier-konton.",
       color: "#d35400",
       tech: [SiReact, SiNodedotjs, SiPostgresql],
+      githubLink: "",
+      demoLink: "",
+      hasDemo: false,
     },
     {
       title: "Real Estate Platform",
@@ -148,6 +155,9 @@ const Projects = () => {
         "En plattform för fastighetsannonser med sökfunktioner och kartintegration.",
       color: "#c0392b",
       tech: [SiReact, SiNodedotjs, SiMongodb, SiExpress],
+      githubLink: "",
+      demoLink: "",
+      hasDemo: false,
     },
     {
       title: "Learning Management System",
@@ -155,6 +165,9 @@ const Projects = () => {
         "Ett system för online-utbildning med videokurser och framstegsspårning.",
       color: "#16a085",
       tech: [SiReact, SiNodedotjs, SiPostgresql, SiDocker],
+      githubLink: "",
+      demoLink: "",
+      hasDemo: false,
     },
   ];
 
@@ -171,11 +184,12 @@ const Projects = () => {
               <ProjectTitle>{project.title}</ProjectTitle>
               <ProjectDescription>{project.description}</ProjectDescription>
               <TechStack>
-                {project.tech.map((Icon, i) => (
-                  <TechIcon key={i}>
-                    <Icon />
-                  </TechIcon>
-                ))}
+                {project.tech &&
+                  project.tech.map((Icon, i) => (
+                    <TechIcon key={i}>
+                      <Icon />
+                    </TechIcon>
+                  ))}
               </TechStack>
               <Links>
                 {project.githubLink && (
