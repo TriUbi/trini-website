@@ -4,6 +4,10 @@ import omMigImage from "../assets/img/om-mig.png";
 const AboutSection = styled.section`
   padding: 100px 0;
   background-color: #1a2238;
+
+  @media (max-width: 768px) {
+    padding: 50px 0;
+  }
 `;
 
 const AboutContainer = styled.div`
@@ -15,14 +19,22 @@ const AboutContainer = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     text-align: center;
     padding: 0 15px;
+    align-items: center;
   }
 `;
 
 const AboutContent = styled.div`
   flex: 1;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 const Title = styled.h2`
@@ -34,6 +46,8 @@ const Title = styled.h2`
   @media (max-width: 768px) {
     font-size: 35px;
     margin-bottom: 15px;
+    text-align: center;
+    width: 100%;
   }
 `;
 
@@ -48,7 +62,9 @@ const Description = styled.p`
     font-size: 16px;
     line-height: 1.6;
     margin: 0 auto 15px;
-    padding: 0 10px;
+    padding: 0 20px;
+    text-align: center;
+    width: 100%;
   }
 `;
 
@@ -62,8 +78,9 @@ const ExperienceBox = styled.div`
 
   @media (max-width: 768px) {
     margin: 15px auto;
-    padding: 20px;
+    padding: 15px;
     max-width: 150px;
+    text-align: center;
   }
 `;
 
@@ -75,6 +92,7 @@ const ExperienceNumber = styled.h3`
   @media (max-width: 768px) {
     font-size: 32px;
     margin-bottom: 5px;
+    text-align: center;
   }
 `;
 
@@ -86,6 +104,7 @@ const ExperienceText = styled.p`
 
   @media (max-width: 768px) {
     font-size: 14px;
+    text-align: center;
   }
 `;
 
@@ -97,6 +116,8 @@ const ImageContainer = styled.div`
 
   @media (max-width: 768px) {
     order: -1;
+    width: 100%;
+    margin-bottom: 20px;
   }
 `;
 
@@ -109,6 +130,7 @@ const AboutImage = styled.img`
   @media (max-width: 768px) {
     max-width: 70%;
     margin: 0 auto;
+    display: block;
   }
 `;
 
