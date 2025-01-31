@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
 import Header from "./components/Header";
@@ -23,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   return (
-    <Router basename="/minportfolio.github.io">
+    <Router>
       <GlobalStyle />
       <GlobalStyles />
       <MagicCursor />
