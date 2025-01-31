@@ -31,13 +31,15 @@ const AboutContent = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 20px;
+    gap: 10px;
+    text-align: center;
+    padding: 0 10px;
   }
 `;
 
 const TextSection = styled.div`
   @media (max-width: 700px) {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -48,8 +50,9 @@ const Title = styled.h2`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 700px) {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 5px;
+    text-align: center;
   }
 `;
 
@@ -61,9 +64,11 @@ const Description = styled.p`
   max-width: 600px;
 
   @media (max-width: 700px) {
-    font-size: 11px;
+    font-size: 10px;
     line-height: 1.3;
     margin-bottom: 5px;
+    text-align: center;
+    margin: 0 auto 5px;
   }
 `;
 
@@ -74,10 +79,7 @@ const StatsGrid = styled.div`
   margin-top: 30px;
 
   @media (max-width: 700px) {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin-top: 0;
+    display: none;
   }
 `;
 
@@ -126,6 +128,7 @@ const TechStack = styled.div`
     flex-direction: column;
     gap: 3px;
     margin-top: 5px;
+    align-items: center;
   }
 `;
 
@@ -138,10 +141,11 @@ const TechItem = styled.div`
   font-size: 14px;
 
   @media (max-width: 700px) {
-    font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 10px;
-    text-align: left;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    text-align: center;
+    width: fit-content;
   }
 `;
 
