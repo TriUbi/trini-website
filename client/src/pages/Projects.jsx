@@ -117,6 +117,7 @@ const Projects = () => {
       tech: [SiReact, SiNodedotjs],
       githubLink: "https://github.com/TriUbi/Subscription_tracker",
       demoLink: "https://triubi.github.io/Subscription_tracker/",
+      hasDemo: true,
     },
     {
       title: "Task Management System",
@@ -124,8 +125,7 @@ const Projects = () => {
         "Ett projekthanteringssystem med realtidsuppdateringar och team-samarbetsfunktioner.",
       color: "#8e44ad",
       tech: [SiReact, SiNodedotjs, SiPostgresql, SiDocker],
-      githubLink: "#",
-      demoLink: "#",
+      hasDemo: false,
     },
     {
       title: "Booking System",
@@ -133,8 +133,7 @@ const Projects = () => {
         "Ett bokningssystem för tjänster med kalendersync och automatiska påminnelser.",
       color: "#27ae60",
       tech: [SiReact, SiNodedotjs, SiMongodb],
-      githubLink: "#",
-      demoLink: "#",
+      hasDemo: false,
     },
     {
       title: "Social Media Dashboard",
@@ -179,12 +178,24 @@ const Projects = () => {
                 ))}
               </TechStack>
               <Links>
-                <LinkButton href={project.githubLink} target="_blank">
-                  <FaGithub /> Kod
-                </LinkButton>
-                <LinkButton href={project.demoLink} target="_blank">
-                  <FaExternalLinkAlt /> Demo
-                </LinkButton>
+                {project.githubLink && (
+                  <LinkButton
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaGithub /> Kod
+                  </LinkButton>
+                )}
+                {project.hasDemo && project.demoLink && (
+                  <LinkButton
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaExternalLinkAlt /> Demo
+                  </LinkButton>
+                )}
               </Links>
             </ProjectInfo>
           </ProjectCard>
