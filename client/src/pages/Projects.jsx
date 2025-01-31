@@ -110,11 +110,13 @@ const LinkButton = styled.a`
 const Projects = () => {
   const projects = [
     {
-      title: "E-handel Platform",
+      title: "Subscription Tracker",
       description:
-        "En fullständig e-handelsplattform med användarautentisering, produkthantering och betalningsintegration.",
+        "En modern webbapplikation byggd med React och Vite som hjälper dig hantera och spåra dina månatliga streamingtjänster. Håll koll på din budget och övervaka dina utgifter på ett ställe.",
       color: "#2980b9",
-      tech: [SiReact, SiNodedotjs, SiMongodb, SiExpress],
+      tech: [SiReact, SiNodedotjs],
+      githubLink: "https://github.com/TriUbi/Subscription_tracker",
+      demoLink: "https://triubi.github.io/Subscription_tracker/",
     },
     {
       title: "Task Management System",
@@ -122,6 +124,8 @@ const Projects = () => {
         "Ett projekthanteringssystem med realtidsuppdateringar och team-samarbetsfunktioner.",
       color: "#8e44ad",
       tech: [SiReact, SiNodedotjs, SiPostgresql, SiDocker],
+      githubLink: "#",
+      demoLink: "#",
     },
     {
       title: "Booking System",
@@ -129,6 +133,8 @@ const Projects = () => {
         "Ett bokningssystem för tjänster med kalendersync och automatiska påminnelser.",
       color: "#27ae60",
       tech: [SiReact, SiNodedotjs, SiMongodb],
+      githubLink: "#",
+      demoLink: "#",
     },
     {
       title: "Social Media Dashboard",
@@ -173,10 +179,10 @@ const Projects = () => {
                 ))}
               </TechStack>
               <Links>
-                <LinkButton href="#" target="_blank">
+                <LinkButton href={project.githubLink} target="_blank">
                   <FaGithub /> Kod
                 </LinkButton>
-                <LinkButton href="#" target="_blank">
+                <LinkButton href={project.demoLink} target="_blank">
                   <FaExternalLinkAlt /> Demo
                 </LinkButton>
               </Links>
