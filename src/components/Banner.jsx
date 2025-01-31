@@ -62,7 +62,7 @@ const ContactButton = styled(Link)`
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
-  margin: 0 auto;
+  text-align: center;
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -93,8 +93,13 @@ const ContactButton = styled(Link)`
   @media (max-width: 768px) {
     font-size: 1.1rem;
     padding: 0.8rem 1.6rem;
-    width: fit-content;
+    width: 80%;
+    max-width: 250px;
+    display: block;
     margin: 0 auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
 `;
 
