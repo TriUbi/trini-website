@@ -9,4 +9,16 @@ export default defineConfig({
     open: true,
     strictPort: false,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'profile.png') {
+            return 'favicon.[ext]';
+          }
+          return 'assets/[name]-[hash][ext]';
+        },
+      },
+    },
+  },
 });
