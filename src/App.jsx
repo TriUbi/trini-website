@@ -10,7 +10,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import Projects from "./pages/Projects";
 import MagicCursor from "./components/MagicCursor";
 import { createGlobalStyle } from "styled-components";
 
@@ -36,7 +35,6 @@ const App = () => {
         <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/projekt" element={<Projects />} />
           <Route exact path="/kontakt" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
