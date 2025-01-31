@@ -79,7 +79,13 @@ const StatsGrid = styled.div`
   margin-top: 30px;
 
   @media (max-width: 700px) {
-    display: none;
+    display: none !important;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
   }
 `;
 
@@ -88,9 +94,7 @@ const StatBox = styled.div`
   text-align: left;
 
   @media (max-width: 700px) {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: none !important;
   }
 `;
 
