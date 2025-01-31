@@ -1,5 +1,5 @@
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   Navigate,
@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   return (
-    <Router basename="/minportfolio.github.io">
+    <Router>
       <GlobalStyle />
       <GlobalStyles />
       <MagicCursor />
@@ -36,8 +36,8 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/kontakt" element={<Contact />} />
           <Route path="/projekt" element={<Projects />} />
+          <Route path="/kontakt" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
