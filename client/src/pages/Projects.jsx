@@ -8,7 +8,6 @@ import {
   SiPostgresql,
   SiDocker,
 } from "react-icons/si";
-import subscriptionTracker from "../assets/img/projects/api-project.png";
 
 const ProjectsContainer = styled.div`
   min-height: 100vh;
@@ -152,15 +151,6 @@ const Projects = () => {
       color: "#16a085",
       tech: [SiReact, SiNodedotjs, SiPostgresql, SiDocker],
     },
-    {
-      title: "Subscription Tracker",
-      description:
-        "En modern webbapplikation byggd med React och Vite som hjälper dig hantera och spåra dina månatliga streamingtjänster. Håll koll på din budget och övervaka dina utgifter på ett ställe.",
-      image: subscriptionTracker,
-      technologies: ["React", "Vite", "CSS", "JavaScript"],
-      githubLink: "https://github.com/TriUbi/Subscription_tracker",
-      demoLink: "https://triubi.github.io/Subscription_tracker/",
-    },
   ];
 
   return (
@@ -183,10 +173,10 @@ const Projects = () => {
                 ))}
               </TechStack>
               <Links>
-                <LinkButton href={project.githubLink} target="_blank">
+                <LinkButton href="#" target="_blank">
                   <FaGithub /> Kod
                 </LinkButton>
-                <LinkButton href={project.demoLink} target="_blank">
+                <LinkButton href="#" target="_blank">
                   <FaExternalLinkAlt /> Demo
                 </LinkButton>
               </Links>

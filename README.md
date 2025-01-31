@@ -47,28 +47,6 @@ En modern och interaktiv portfolio-webbplats byggd med React och styled-componen
 - [GitHub](https://github.com/TriUbi)
 - Email: triubilla@gmail.com
 
-## 🚀 Installation & Användning
-
-1. Klona repositoryt:
-   \`\`\`bash
-   git clone https://github.com/TriUbi/minportfolio.github.io.git
-   \`\`\`
-
-2. Installera dependencies:
-   \`\`\`bash
-   npm install
-   \`\`\`
-
-3. Starta utvecklingsservern:
-   \`\`\`bash
-   npm run dev
-   \`\`\`
-
-4. Bygg för produktion:
-   \`\`\`bash
-   npm run build
-   \`\`\`
-
 ## 📝 License
 
-Copyright © 2024 [Trinidad Ubilla](https://github.com/TriUbi).
+Copyright © 2025 [Trinidad Ubilla](https://github.com/TriUbi).
