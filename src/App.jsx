@@ -35,9 +35,9 @@ const App = () => {
       <AppContainer>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projekt" element={<Projects />} />
-          <Route path="/kontakt" element={<Contact />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/projekt" element={<Projects />} />
+          <Route exact path="/kontakt" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />

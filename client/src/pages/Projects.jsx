@@ -139,36 +139,6 @@ const Projects = () => {
       demoLink: "",
       hasDemo: false,
     },
-    {
-      title: "Social Media Dashboard",
-      description:
-        "En dashboard för att hantera och analysera sociala medier-konton.",
-      color: "#d35400",
-      tech: [SiReact, SiNodedotjs, SiPostgresql],
-      githubLink: "",
-      demoLink: "",
-      hasDemo: false,
-    },
-    {
-      title: "Real Estate Platform",
-      description:
-        "En plattform för fastighetsannonser med sökfunktioner och kartintegration.",
-      color: "#c0392b",
-      tech: [SiReact, SiNodedotjs, SiMongodb, SiExpress],
-      githubLink: "",
-      demoLink: "",
-      hasDemo: false,
-    },
-    {
-      title: "Learning Management System",
-      description:
-        "Ett system för online-utbildning med videokurser och framstegsspårning.",
-      color: "#16a085",
-      tech: [SiReact, SiNodedotjs, SiPostgresql, SiDocker],
-      githubLink: "",
-      demoLink: "",
-      hasDemo: false,
-    },
   ];
 
   return (
