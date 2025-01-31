@@ -5,8 +5,8 @@ const AboutSection = styled.section`
   padding: 100px 0;
   background-color: #1a2238;
 
-  @media (max-width: 768px) {
-    padding: 50px 0;
+  @media (max-width: 700px) {
+    padding: 30px 0;
   }
 `;
 
@@ -17,11 +17,11 @@ const AboutContainer = styled.div`
   display: flex;
   gap: 50px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 700px) {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     text-align: center;
-    padding: 0 15px;
+    padding: 0 10px;
     align-items: center;
   }
 `;
@@ -29,11 +29,12 @@ const AboutContainer = styled.div`
 const AboutContent = styled.div`
   flex: 1;
 
-  @media (max-width: 768px) {
+  @media (max-width: 700px) {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    max-width: 400px;
   }
 `;
 
@@ -43,9 +44,9 @@ const Title = styled.h2`
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
-  @media (max-width: 768px) {
-    font-size: 35px;
-    margin-bottom: 15px;
+  @media (max-width: 700px) {
+    font-size: 28px;
+    margin-bottom: 10px;
     text-align: center;
     width: 100%;
   }
@@ -58,11 +59,11 @@ const Description = styled.p`
   margin-bottom: 30px;
   max-width: 600px;
 
-  @media (max-width: 768px) {
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 0 auto 15px;
-    padding: 0 20px;
+  @media (max-width: 700px) {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0 auto 10px;
+    padding: 0 15px;
     text-align: center;
     width: 100%;
   }
@@ -76,10 +77,10 @@ const ExperienceBox = styled.div`
   margin-top: 30px;
   max-width: 200px;
 
-  @media (max-width: 768px) {
-    margin: 15px auto;
-    padding: 15px;
-    max-width: 150px;
+  @media (max-width: 700px) {
+    margin: 10px auto;
+    padding: 10px;
+    max-width: 120px;
     text-align: center;
   }
 `;
@@ -89,9 +90,9 @@ const ExperienceNumber = styled.h3`
   color: #3498db;
   margin-bottom: 10px;
 
-  @media (max-width: 768px) {
-    font-size: 32px;
-    margin-bottom: 5px;
+  @media (max-width: 700px) {
+    font-size: 24px;
+    margin-bottom: 3px;
     text-align: center;
   }
 `;
@@ -102,8 +103,8 @@ const ExperienceText = styled.p`
   text-transform: uppercase;
   letter-spacing: 1px;
 
-  @media (max-width: 768px) {
-    font-size: 14px;
+  @media (max-width: 700px) {
+    font-size: 12px;
     text-align: center;
   }
 `;
@@ -114,10 +115,10 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 700px) {
     order: -1;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 `;
 
@@ -127,8 +128,8 @@ const AboutImage = styled.img`
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
-  @media (max-width: 768px) {
-    max-width: 70%;
+  @media (max-width: 700px) {
+    max-width: 60%;
     margin: 0 auto;
     display: block;
   }
