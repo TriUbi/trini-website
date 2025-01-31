@@ -32,8 +32,8 @@ const Title = styled.h2`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    font-size: 50px;
-    margin-bottom: 20px;
+    font-size: 35px;
+    margin-bottom: 15px;
   }
 `;
 
@@ -45,9 +45,10 @@ const Description = styled.p`
   max-width: 600px;
 
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
-    margin: 0 auto 20px;
+    margin: 0 auto 15px;
+    padding: 0 10px;
   }
 `;
 
@@ -60,7 +61,9 @@ const ExperienceBox = styled.div`
   max-width: 200px;
 
   @media (max-width: 768px) {
-    margin: 20px auto;
+    margin: 15px auto;
+    padding: 20px;
+    max-width: 150px;
   }
 `;
 
@@ -70,7 +73,8 @@ const ExperienceNumber = styled.h3`
   margin-bottom: 10px;
 
   @media (max-width: 768px) {
-    font-size: 40px;
+    font-size: 32px;
+    margin-bottom: 5px;
   }
 `;
 
@@ -81,7 +85,7 @@ const ExperienceText = styled.p`
   letter-spacing: 1px;
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 
@@ -103,7 +107,7 @@ const AboutImage = styled.img`
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
-    max-width: 80%;
+    max-width: 70%;
     margin: 0 auto;
   }
 `;
