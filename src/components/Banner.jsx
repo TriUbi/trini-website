@@ -81,25 +81,50 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled(Link)`
-  padding: 15px 30px;
-  border-radius: 30px;
-  border: white 1px solid;
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
   color: white;
   background: transparent;
-  cursor: pointer;
-  font-size: 17px;
-  box-shadow: 0 0 10px rgb(255, 255, 255);
-  display: inline-block;
-  transition: all 0.3s ease;
+  border: 2px solid white;
+  border-radius: 30px;
   text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
 
   &:hover {
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
   }
 
   @media (max-width: 768px) {
-    padding: 12px 25px;
-    font-size: 16px;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.6rem;
+    width: 80%;
+    max-width: 250px;
   }
 `;
 
