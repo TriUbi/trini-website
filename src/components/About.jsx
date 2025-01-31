@@ -67,9 +67,10 @@ const StatsGrid = styled.div`
   margin-top: 30px;
 
   @media (max-width: 700px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
   }
 `;
 
@@ -78,7 +79,9 @@ const StatBox = styled.div`
   text-align: left;
 
   @media (max-width: 700px) {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 `;
 
@@ -88,8 +91,8 @@ const StatNumber = styled.h3`
   margin-bottom: 5px;
 
   @media (max-width: 700px) {
-    font-size: 20px;
-    margin-bottom: 2px;
+    font-size: 18px;
+    margin-bottom: 0;
   }
 `;
 
@@ -100,7 +103,7 @@ const StatText = styled.p`
   letter-spacing: 1px;
 
   @media (max-width: 700px) {
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.5px;
   }
 `;
@@ -112,8 +115,10 @@ const TechStack = styled.div`
   margin-top: 20px;
 
   @media (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
     gap: 5px;
-    margin-top: 15px;
+    margin-top: 10px;
   }
 `;
 
@@ -126,9 +131,10 @@ const TechItem = styled.div`
   font-size: 14px;
 
   @media (max-width: 700px) {
-    font-size: 10px;
+    font-size: 12px;
     padding: 4px 8px;
     border-radius: 12px;
+    text-align: left;
   }
 `;
 
