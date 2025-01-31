@@ -8,7 +8,6 @@ import {
   SiPostgresql,
   SiDocker,
 } from "react-icons/si";
-import subscriptionTracker from "../assets/img/projects/api-project.png";
 
 const ProjectsContainer = styled.div`
   min-height: 100vh;
@@ -111,11 +110,14 @@ const LinkButton = styled.a`
 const Projects = () => {
   const projects = [
     {
-      title: "E-handel Platform",
+      title: "Subscription Tracker",
       description:
-        "En fullständig e-handelsplattform med användarautentisering, produkthantering och betalningsintegration.",
+        "En modern webbapplikation byggd med React och Vite som hjälper dig hantera och spåra dina månatliga streamingtjänster. Håll koll på din budget och övervaka dina utgifter på ett ställe.",
       color: "#2980b9",
-      tech: [SiReact, SiNodedotjs, SiMongodb, SiExpress],
+      tech: [SiReact, SiNodedotjs],
+      githubLink: "https://github.com/TriUbi/Subscription_tracker",
+      demoLink: "https://triubi.github.io/Subscription_tracker/",
+      hasDemo: true,
     },
     {
       title: "Task Management System",
@@ -123,6 +125,9 @@ const Projects = () => {
         "Ett projekthanteringssystem med realtidsuppdateringar och team-samarbetsfunktioner.",
       color: "#8e44ad",
       tech: [SiReact, SiNodedotjs, SiPostgresql, SiDocker],
+      githubLink: "",
+      demoLink: "",
+      hasDemo: false,
     },
     {
       title: "Booking System",
@@ -130,36 +135,9 @@ const Projects = () => {
         "Ett bokningssystem för tjänster med kalendersync och automatiska påminnelser.",
       color: "#27ae60",
       tech: [SiReact, SiNodedotjs, SiMongodb],
-    },
-    {
-      title: "Social Media Dashboard",
-      description:
-        "En dashboard för att hantera och analysera sociala medier-konton.",
-      color: "#d35400",
-      tech: [SiReact, SiNodedotjs, SiPostgresql],
-    },
-    {
-      title: "Real Estate Platform",
-      description:
-        "En plattform för fastighetsannonser med sökfunktioner och kartintegration.",
-      color: "#c0392b",
-      tech: [SiReact, SiNodedotjs, SiMongodb, SiExpress],
-    },
-    {
-      title: "Learning Management System",
-      description:
-        "Ett system för online-utbildning med videokurser och framstegsspårning.",
-      color: "#16a085",
-      tech: [SiReact, SiNodedotjs, SiPostgresql, SiDocker],
-    },
-    {
-      title: "Subscription Tracker",
-      description:
-        "En modern webbapplikation byggd med React och Vite som hjälper dig hantera och spåra dina månatliga streamingtjänster. Håll koll på din budget och övervaka dina utgifter på ett ställe.",
-      image: subscriptionTracker,
-      technologies: ["React", "Vite", "CSS", "JavaScript"],
-      githubLink: "https://github.com/TriUbi/Subscription_tracker",
-      demoLink: "https://triubi.github.io/Subscription_tracker/",
+      githubLink: "",
+      demoLink: "",
+      hasDemo: false,
     },
   ];
 
@@ -176,19 +154,32 @@ const Projects = () => {
               <ProjectTitle>{project.title}</ProjectTitle>
               <ProjectDescription>{project.description}</ProjectDescription>
               <TechStack>
-                {project.tech.map((Icon, i) => (
-                  <TechIcon key={i}>
-                    <Icon />
-                  </TechIcon>
-                ))}
+                {project.tech &&
+                  project.tech.map((Icon, i) => (
+                    <TechIcon key={i}>
+                      <Icon />
+                    </TechIcon>
+                  ))}
               </TechStack>
               <Links>
-                <LinkButton href={project.githubLink} target="_blank">
-                  <FaGithub /> Kod
-                </LinkButton>
-                <LinkButton href={project.demoLink} target="_blank">
-                  <FaExternalLinkAlt /> Demo
-                </LinkButton>
+                {project.githubLink && (
+                  <LinkButton
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaGithub /> Kod
+                  </LinkButton>
+                )}
+                {project.hasDemo && project.demoLink && (
+                  <LinkButton
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaExternalLinkAlt /> Demo
+                  </LinkButton>
+                )}
               </Links>
             </ProjectInfo>
           </ProjectCard>
