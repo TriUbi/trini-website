@@ -211,37 +211,35 @@ const SkillBubble = styled.div`
   height: 50px;
   border-radius: 50%;
   position: absolute;
-  animation: float ${(props) => props.duration}s ease-in-out infinite;
+  animation: float ${(props) => props.duration + 4}s ease-in-out infinite;
   animation-delay: ${(props) => props.delay}s;
+  opacity: 0.9;
   backdrop-filter: blur(5px);
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 
   svg {
     font-size: 1.5em;
   }
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   }
 
   @keyframes float {
     0% {
-      transform: translate(0, 0);
+      transform: translate(0px, 0px);
     }
     50% {
-      transform: translate(
-        ${(props) => props.moveX}px,
-        ${(props) => props.moveY}px
-      );
+      transform: translate(10px, -10px);
     }
     100% {
-      transform: translate(0, 0);
+      transform: translate(0px, 0px);
     }
   }
 
