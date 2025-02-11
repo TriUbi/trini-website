@@ -50,7 +50,7 @@ const Title = styled.h2`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 700px) {
-    font-size: 18px;
+    font-size: 10px;
     margin-bottom: 5px;
     text-align: center;
   }

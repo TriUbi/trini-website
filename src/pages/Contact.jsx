@@ -122,7 +122,7 @@ const Contact = () => {
           <InfoItem>📍 Stockholm, Sverige</InfoItem>
           <SocialLinks>
             <SocialIcon
-              href="https://github.com/minportfolio"
+              href="https://github.com/TriUbi"
               target="_blank"
               rel="noopener noreferrer"
               title="GitHub"
@@ -130,7 +130,7 @@ const Contact = () => {
               <FaGithub />
             </SocialIcon>
             <SocialIcon
-              href="https://www.linkedin.com/in/trinidad-ubilla"
+              href="https://www.linkedin.com/in/%E2%9A%A1%EF%B8%8Ftrinidad-ubilla-46924429a"
               target="_blank"
               rel="noopener noreferrer"
               title="LinkedIn"
