@@ -8,15 +8,28 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   position: fixed;
   align-items: center;
   top: 0;
-  z-index: 1;
+  z-index: 1000;
+  isolation: isolate;
+  mix-blend-mode: normal;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
+    pointer-events: none;
+    z-index: -1;
+  }
 `;
 
 const Logo = styled(Link)`
   flex: 1;
+  position: relative;
+  z-index: 2;
   img {
     width: 150px;
   }
@@ -25,6 +38,8 @@ const Logo = styled(Link)`
 const Nav = styled.nav`
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 2;
 
   a {
     color: white;
@@ -35,6 +50,7 @@ const Nav = styled.nav`
     font-weight: 600;
     margin-right: 20px;
     transition: ease-in 0.8s;
+    backdrop-filter: none;
 
     &:hover {
       color: #3498db;
