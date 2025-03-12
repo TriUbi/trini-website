@@ -63,8 +63,8 @@ const Home = () => {
   const statsRef = useRef(null);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  const animateValue = (key, endValue, duration = 1500) => {
-    const steps = 30;
+  const animateValue = (key, endValue, duration = 1000) => {
+    const steps = 20;
     const stepDuration = duration / steps;
     let current = 0;
 
@@ -88,13 +88,13 @@ const Home = () => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
 
-          setTimeout(() => animateValue("years", 2, 1000), 0);
-          setTimeout(() => animateValue("projects", 15, 1500), 500);
-          setTimeout(() => animateValue("contributions", 380, 2000), 1000);
-          setTimeout(() => animateValue("engagement", 200, 1500), 1500);
+          animateValue("years", 2, 800);
+          setTimeout(() => animateValue("projects", 15, 1000), 200);
+          setTimeout(() => animateValue("contributions", 380, 1200), 400);
+          setTimeout(() => animateValue("engagement", 200, 1000), 600);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     if (statsRef.current) {
@@ -136,10 +136,10 @@ const Home = () => {
   ];
 
   const getRandomPosition = () => ({
-    moveX: Math.random() * 20 - 10,
-    moveY: Math.random() * 20 - 10,
-    duration: 4 + Math.random() * 2,
-    delay: Math.random() * 3,
+    moveX: Math.random() * 10 - 5,
+    moveY: Math.random() * 10 - 5,
+    duration: 3 + Math.random(),
+    delay: Math.random() * 2,
   });
 
   const leftSkills = skills.filter((skill) => skill.side === "left");

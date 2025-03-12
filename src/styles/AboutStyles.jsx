@@ -154,12 +154,13 @@ export const StatsContainer = styled.div`
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  animation: fadeIn 1s ease-out;
+  will-change: opacity, transform;
+  animation: fadeIn 0.5s ease-out;
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(10px);
     }
     to {
       opacity: 1;
@@ -304,7 +305,8 @@ export const SkillBubble = styled.div`
   height: 50px;
   border-radius: 50%;
   position: absolute;
-  animation: float ${(props) => props.duration + 4}s ease-in-out infinite;
+  will-change: transform;
+  animation: float ${(props) => props.duration + 2}s ease-in-out infinite;
   animation-delay: ${(props) => props.delay}s;
   opacity: 0.9;
   backdrop-filter: blur(5px);
@@ -312,27 +314,24 @@ export const SkillBubble = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 
   svg {
     font-size: 1.5em;
   }
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   }
 
   @keyframes float {
-    0% {
-      transform: translate(0px, 0px);
+    0%,
+    100% {
+      transform: translate(0, 0);
     }
     50% {
-      transform: translate(10px, -10px);
-    }
-    100% {
-      transform: translate(0px, 0px);
+      transform: translate(5px, -5px);
     }
   }
 
