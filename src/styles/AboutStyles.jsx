@@ -1,11 +1,35 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import bannerBg from "../assets/img/banner.jpg";
+
+const gradientAnimation = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`;
 
 export const AboutSection = styled.section`
   padding: 80px 20px;
   position: relative;
   z-index: 1;
-  background: rgba(24, 55, 110, 0.95);
+  background: linear-gradient(
+    45deg,
+    rgb(28, 58, 109),
+    rgb(5, 21, 55),
+    rgb(24, 55, 110),
+    rgb(52, 152, 219),
+    rgb(41, 128, 185),
+    rgb(33, 97, 140),
+    rgb(24, 55, 110),
+    rgb(28, 58, 109)
+  );
+  background-size: 400% 400%;
+  animation: ${gradientAnimation} 15s ease infinite;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,35 +134,93 @@ export const Description = styled.p`
 
 export const SkillsContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   margin-top: 2rem;
   justify-content: center;
+  width: 100%;
   max-width: 800px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+`;
+
+export const SkillColumn = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+export const SkillTitle = styled.h3`
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  text-align: center;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+  }
 `;
 
 export const SkillTag = styled.span`
-  background: rgba(255, 255, 255, 0.08);
-  padding: 0.8rem 1.2rem;
-  border-radius: 30px;
+  background: ${(props) =>
+    props.isHeader ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.08)"};
+  padding: ${(props) => (props.isHeader ? "0.8rem 1.2rem" : "0.6rem 1rem")};
+  border-radius: 20px;
   color: white;
-  font-size: 1rem;
+  font-size: ${(props) => (props.isHeader ? "1.1rem" : "0.9rem")};
+  font-weight: ${(props) => (props.isHeader ? "600" : "normal")};
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  margin: 0.5rem;
+  gap: 0.6rem;
+  margin: 0;
+  justify-content: center;
+  flex-grow: 0;
 
   svg {
-    font-size: 1.4em;
+    font-size: 1.2em;
     color: rgba(255, 255, 255, 0.9);
   }
 
+  span.text-icon {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
   &:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 `;
 

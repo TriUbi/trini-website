@@ -1,10 +1,33 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const gradientAnimation = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`;
 
 export const GitHubSection = styled.div`
   text-align: center;
   padding: 40px 20px;
-  background: rgba(53, 56, 83, 0.5);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    45deg,
+    rgb(28, 58, 109),
+    rgb(5, 21, 55),
+    rgb(24, 55, 110),
+    rgb(52, 152, 219),
+    rgb(41, 128, 185),
+    rgb(33, 97, 140),
+    rgb(24, 55, 110),
+    rgb(28, 58, 109)
+  );
+  background-size: 400% 400%;
+  animation: ${gradientAnimation} 15s ease infinite;
 `;
 
 export const GitHubLink = styled.a`

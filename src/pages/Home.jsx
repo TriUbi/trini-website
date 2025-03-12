@@ -21,7 +21,7 @@ import {
   SiFirebase,
 } from "react-icons/si";
 import { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import {
   AboutSection,
   AboutContent,
@@ -42,13 +42,39 @@ import {
   SkillsRight,
   AboutImage,
   SkillBubble,
+  SkillColumn,
+  SkillTitle,
 } from "../styles/AboutStyles.jsx";
 import { GitHubSection, GitHubLink } from "../styles/GitHubStyles.jsx";
+
+const gradientAnimation = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`;
 
 const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
-  background: rgba(24, 55, 110, 0.95);
+  background: linear-gradient(
+    45deg,
+    rgb(28, 58, 109),
+    rgb(5, 21, 55),
+    rgb(24, 55, 110),
+    rgb(52, 152, 219),
+    rgb(41, 128, 185),
+    rgb(33, 97, 140),
+    rgb(24, 55, 110),
+    rgb(28, 58, 109)
+  );
+  background-size: 400% 400%;
+  animation: ${gradientAnimation} 15s ease infinite;
   overflow: hidden;
 `;
 
@@ -63,22 +89,30 @@ const Home = () => {
   const statsRef = useRef(null);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  const animateValue = (key, endValue, duration = 1000) => {
-    const steps = 20;
-    const stepDuration = duration / steps;
-    let current = 0;
+  const animateValue = (key, endValue, duration = 2000) => {
+    const startTime = Date.now();
+    const startValue = counts[key];
 
-    const timer = setInterval(() => {
-      current++;
-      if (current === steps) {
-        clearInterval(timer);
-        setCounts((prev) => ({ ...prev, [key]: endValue }));
-      } else {
-        const progress = current / steps;
-        const currentValue = Math.floor(endValue * progress);
-        setCounts((prev) => ({ ...prev, [key]: currentValue }));
+    const easeOutQuart = (x) => {
+      return 1 - Math.pow(1 - x, 4);
+    };
+
+    const updateValue = () => {
+      const currentTime = Date.now();
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      const easedProgress = easeOutQuart(progress);
+      const currentValue = Math.floor(easedProgress * endValue);
+
+      setCounts((prev) => ({ ...prev, [key]: currentValue }));
+
+      if (progress < 1) {
+        requestAnimationFrame(updateValue);
       }
-    }, stepDuration);
+    };
+
+    requestAnimationFrame(updateValue);
   };
 
   useEffect(() => {
@@ -88,10 +122,10 @@ const Home = () => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
 
-          animateValue("years", 2, 800);
-          setTimeout(() => animateValue("projects", 15, 1000), 200);
-          setTimeout(() => animateValue("contributions", 380, 1200), 400);
-          setTimeout(() => animateValue("engagement", 200, 1000), 600);
+          animateValue("years", 3, 1500);
+          setTimeout(() => animateValue("projects", 15, 2000), 200);
+          setTimeout(() => animateValue("contributions", 380, 2500), 400);
+          setTimeout(() => animateValue("engagement", 200, 2000), 600);
         }
       },
       { threshold: 0.3 }
@@ -109,30 +143,40 @@ const Home = () => {
   }, [hasAnimated]);
 
   const mainSkills = [
+    { name: "Frontend", icon: "🎨", isHeader: true },
     { name: "React", icon: <FaReact /> },
     { name: "TypeScript", icon: <SiTypescript /> },
     { name: "JavaScript", icon: <FaJs /> },
+    { name: "HTML5", icon: <FaHtml5 /> },
+    { name: "CSS3", icon: <FaCss3Alt /> },
+    { name: "WordPress", icon: <FaWordpress /> },
+    { name: "SEO", icon: "SEO" },
+    { name: "Backend", icon: "⚙️", isHeader: true },
     { name: "Node.js", icon: <FaNodeJs /> },
+    { name: "PHP", icon: "PHP" },
+    { name: "Express", icon: <SiExpress /> },
     { name: "Firebase", icon: <SiFirebase /> },
     { name: "MongoDB", icon: <SiMongodb /> },
     { name: "PostgreSQL", icon: <SiPostgresql /> },
-    { name: "Express", icon: <SiExpress /> },
-    { name: "HTML5", icon: <FaHtml5 /> },
-    { name: "CSS3", icon: <FaCss3Alt /> },
+    { name: "SQL DB", icon: <FaDatabase /> },
   ];
 
   const skills = [
-    { name: "HTML5", icon: <FaHtml5 />, side: "left", position: 15 },
-    { name: "CSS3", icon: <FaCss3Alt />, side: "left", position: 35 },
+    // Frontend
+    { name: "React", icon: <FaReact />, side: "left", position: 15 },
+    { name: "TypeScript", icon: <SiTypescript />, side: "left", position: 35 },
     { name: "JavaScript", icon: <FaJs />, side: "left", position: 55 },
-    { name: "React", icon: <FaReact />, side: "left", position: 75 },
-    { name: "TypeScript", icon: <SiTypescript />, side: "left", position: 95 },
+    { name: "HTML5", icon: <FaHtml5 />, side: "left", position: 75 },
+    { name: "CSS3", icon: <FaCss3Alt />, side: "left", position: 95 },
+    { name: "WordPress", icon: <FaWordpress />, side: "left", position: 115 },
+
+    // Backend
     { name: "Node.js", icon: <FaNodeJs />, side: "right", position: 15 },
     { name: "Express", icon: <SiExpress />, side: "right", position: 35 },
-    { name: "MongoDB", icon: <SiMongodb />, side: "right", position: 55 },
-    { name: "PostgreSQL", icon: <SiPostgresql />, side: "right", position: 75 },
-    { name: "Firebase", icon: <SiFirebase />, side: "right", position: 90 },
-    { name: "Docker", icon: <FaDocker />, side: "right", position: 110 },
+    { name: "Firebase", icon: <SiFirebase />, side: "right", position: 55 },
+    { name: "MongoDB", icon: <SiMongodb />, side: "right", position: 75 },
+    { name: "PostgreSQL", icon: <SiPostgresql />, side: "right", position: 95 },
+    { name: "Docker", icon: <FaDocker />, side: "right", position: 115 },
   ];
 
   const getRandomPosition = () => ({
@@ -170,11 +214,46 @@ const Home = () => {
               lärande är en naturlig del av mitt arbete.
             </Description>
             <SkillsContainer>
-              {mainSkills.map((skill, index) => (
-                <SkillTag key={index}>
-                  {skill.icon} {skill.name}
-                </SkillTag>
-              ))}
+              <SkillColumn>
+                <SkillTitle>Frontend</SkillTitle>
+                {mainSkills
+                  .filter(
+                    (skill) =>
+                      !skill.isHeader &&
+                      mainSkills.indexOf(skill) <
+                        mainSkills.findIndex((s) => s.name === "Backend")
+                  )
+                  .map((skill, index) => (
+                    <SkillTag key={index}>
+                      {typeof skill.icon === "string" ? (
+                        <span className="text-icon">{skill.icon}</span>
+                      ) : (
+                        skill.icon
+                      )}{" "}
+                      {skill.name}
+                    </SkillTag>
+                  ))}
+              </SkillColumn>
+              <SkillColumn>
+                <SkillTitle>Backend</SkillTitle>
+                {mainSkills
+                  .filter(
+                    (skill) =>
+                      !skill.isHeader &&
+                      mainSkills.indexOf(skill) >
+                        mainSkills.findIndex((s) => s.name === "Backend")
+                  )
+                  .map((skill, index) => (
+                    <SkillTag key={index}>
+                      {typeof skill.icon === "string" ? (
+                        <span className="text-icon">{skill.icon}</span>
+                      ) : (
+                        skill.icon
+                      )}{" "}
+                      {skill.name}
+                    </SkillTag>
+                  ))}
+              </SkillColumn>
             </SkillsContainer>
           </AboutText>
         </AboutContent>
