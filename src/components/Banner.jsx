@@ -71,12 +71,15 @@ const ButtonContainer = styled.div`
   position: relative;
   z-index: 1;
   margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
   @media (max-width: 768px) {
     margin-left: 0;
-    display: flex;
     justify-content: center;
-    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 `;
 
@@ -91,8 +94,6 @@ const Button = styled(Link)`
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  position: relative;
-  overflow: hidden;
   text-align: center;
 
   &:hover {
@@ -101,31 +102,26 @@ const Button = styled(Link)`
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
-    transition: 0.5s;
-  }
-
-  &:hover::before {
-    left: 100%;
-  }
-
   @media (max-width: 768px) {
     font-size: 1.1rem;
     padding: 0.8rem 1.6rem;
     width: 80%;
     max-width: 250px;
+  }
+`;
+
+const TextLink = styled.a`
+  font-size: 1rem;
+  color: white;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #3498db;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
   }
 `;
 

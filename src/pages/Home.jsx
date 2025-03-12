@@ -1,7 +1,5 @@
-import styled from "styled-components";
 import Banner from "../components/Banner";
 import omMigBild from "../assets/img/om-mig.png";
-import bannerBg from "../assets/img/banner.jpg";
 import {
   FaReact,
   FaNodeJs,
@@ -23,260 +21,35 @@ import {
   SiFirebase,
 } from "react-icons/si";
 import { useEffect, useState, useRef } from "react";
+import styled from "styled-components";
+import {
+  AboutSection,
+  AboutContent,
+  AboutText,
+  Title,
+  Description,
+  SkillsContainer,
+  SkillTag,
+  StatsContainer,
+  StatsTitle,
+  StatsWrapper,
+  StatItem,
+  StatNumber,
+  StatLabel,
+  ImageSection,
+  ImageContainer,
+  SkillsLeft,
+  SkillsRight,
+  AboutImage,
+  SkillBubble,
+} from "../styles/AboutStyles.jsx";
+import { GitHubSection, GitHubLink } from "../styles/GitHubStyles.jsx";
 
 const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
   background: rgba(24, 55, 110, 0.95);
-`;
-
-const AboutSection = styled.section`
-  padding: 60px 20px;
-  position: relative;
-  z-index: 1;
-`;
-
-const AboutContent = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-`;
-
-const AboutText = styled.div`
-  color: white;
-  max-width: 600px;
-`;
-
-const Title = styled.h2`
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  color: white;
-  position: relative;
-  display: inline-block;
-
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 120px;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-  }
-`;
-
-const Description = styled.p`
-  font-size: 1.2rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
-`;
-
-const SkillsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 3rem;
-`;
-
-const SkillTag = styled.span`
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
-  color: white;
-  font-size: 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-
-  svg {
-    font-size: 1.4em;
-  }
-
-  &:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.2);
-  }
-`;
-
-const StatsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  padding: 3rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  align-self: center;
-  width: 100%;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-`;
-
-const StatItem = styled.div`
-  text-align: center;
-  padding: 1rem;
-`;
-
-const StatNumber = styled.div`
-  font-size: 4rem;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 0.5rem;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
-
-const StatLabel = styled.div`
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-`;
-
-const ImageSection = styled.section`
-  background-image: url(${bannerBg});
-  background-attachment: fixed;
-  background-size: cover;
-  position: relative;
-  padding: 30px 20px 120px;
-  z-index: 1;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  margin-bottom: 0;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(53, 56, 83, 0.2);
-    z-index: -1;
-  }
-`;
-
-const ImageContainer = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 350px 1fr;
-  gap: 10px;
-  align-items: center;
-  position: relative;
-
-  @media (max-width: 1200px) {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-`;
-
-const SkillsLeft = styled.div`
-  position: relative;
-  height: 100%;
-`;
-
-const SkillsRight = styled.div`
-  position: relative;
-  height: 100%;
-`;
-
-const AboutImage = styled.img`
-  width: 100%;
-  max-width: 350px;
-  height: auto;
-  object-fit: contain;
-  z-index: 2;
-`;
-
-const SkillBubble = styled.div`
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  position: absolute;
-  animation: float ${(props) => props.duration + 4}s ease-in-out infinite;
-  animation-delay: ${(props) => props.delay}s;
-  opacity: 0.9;
-  backdrop-filter: blur(5px);
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-
-  svg {
-    font-size: 1.5em;
-  }
-
-  &:hover {
-    transform: scale(1.2);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  }
-
-  @keyframes float {
-    0% {
-      transform: translate(0px, 0px);
-    }
-    50% {
-      transform: translate(10px, -10px);
-    }
-    100% {
-      transform: translate(0px, 0px);
-    }
-  }
-
-  @media (max-width: 1200px) {
-    display: none;
-  }
-`;
-
-const GitHubSection = styled.div`
-  text-align: center;
-  padding: 40px 20px;
-  background: rgba(53, 56, 83, 0.5);
-  backdrop-filter: blur(10px);
-`;
-
-const GitHubLink = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 30px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 30px;
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  svg {
-    font-size: 1.5em;
-  }
+  overflow: hidden;
 `;
 
 const Home = () => {
@@ -315,7 +88,6 @@ const Home = () => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
 
-          // Animate each number with a delay
           setTimeout(() => animateValue("years", 2, 1000), 0);
           setTimeout(() => animateValue("projects", 15, 1500), 500);
           setTimeout(() => animateValue("contributions", 380, 2000), 1000);
@@ -335,6 +107,19 @@ const Home = () => {
       }
     };
   }, [hasAnimated]);
+
+  const mainSkills = [
+    { name: "React", icon: <FaReact /> },
+    { name: "TypeScript", icon: <SiTypescript /> },
+    { name: "JavaScript", icon: <FaJs /> },
+    { name: "Node.js", icon: <FaNodeJs /> },
+    { name: "Firebase", icon: <SiFirebase /> },
+    { name: "MongoDB", icon: <SiMongodb /> },
+    { name: "PostgreSQL", icon: <SiPostgresql /> },
+    { name: "Express", icon: <SiExpress /> },
+    { name: "HTML5", icon: <FaHtml5 /> },
+    { name: "CSS3", icon: <FaCss3Alt /> },
+  ];
 
   const skills = [
     { name: "HTML5", icon: <FaHtml5 />, side: "left", position: 15 },
@@ -368,23 +153,33 @@ const Home = () => {
           <AboutText>
             <Title>Om mig</Title>
             <Description>
-              Jag är en person som älskar att lära mig nya saker varje dag. Om
-              jag faller, reser jag mig upp igen. Jag vill bidra till projekt
-              och team som har en tydlig vision och där alla medlemmar är
-              viktiga.
+              Är en engagerad Fullstackutvecklare som vill bidra till innovativa
+              projekt. Jag trivs med både frontend- och backendutveckling. Jag
+              är passionerad i allt jag gör och vill fortsätta lära mig och
+              utveckla mina färdigheter tillsammans med rätt företag
             </Description>
             <Description>
-              På min fritid är jag med min familj, skriver poesi och skapar små
-              projekt eftersom jag har hittat min stora passion: att koda.
+              Erfaren inom fullstackutveckling med speciella kunskaper inom
+              React, TypeScript och JavaScript. Arbetat med React och Firebase
+              för att bygga och optimera digitala lösningar för e-handel, SaaS
+              och realtidsapplikationer. Har erfarenhet av API- integrationer,
+              betalningslösningar, autentisering och databashantering i
+              Firestore och SQL. Djup kunskap inom WordPress och SEO. Arbetat
+              med styling i Styled Components, CSS och SASS. Har god förståelse
+              för agila metoder och parprogrammering. Ständig utveckling och
+              lärande är en naturlig del av mitt arbete.
             </Description>
             <SkillsContainer>
-              {skills.map((skill, index) => (
+              {mainSkills.map((skill, index) => (
                 <SkillTag key={index}>
                   {skill.icon} {skill.name}
                 </SkillTag>
               ))}
             </SkillsContainer>
           </AboutText>
+        </AboutContent>
+        <StatsWrapper>
+          <StatsTitle>Min Erfarenhet i Siffror</StatsTitle>
           <StatsContainer ref={statsRef}>
             <StatItem>
               <StatNumber>{counts.years}+</StatNumber>
@@ -403,7 +198,7 @@ const Home = () => {
               <StatLabel>Engagemang</StatLabel>
             </StatItem>
           </StatsContainer>
-        </AboutContent>
+        </StatsWrapper>
       </AboutSection>
       <ImageSection>
         <ImageContainer>
