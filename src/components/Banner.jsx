@@ -77,9 +77,10 @@ const ButtonContainer = styled.div`
 
   @media (max-width: 768px) {
     margin-left: 0;
+    margin-right: 0;
+    width: 100%;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    padding: 0 20px;
   }
 `;
 
@@ -103,10 +104,17 @@ const Button = styled(Link)`
   }
 
   @media (max-width: 768px) {
-    font-size: 1.1rem;
-    padding: 0.8rem 1.6rem;
-    width: 80%;
-    max-width: 250px;
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+    width: auto;
+    min-width: 150px;
+    max-width: 200px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    min-width: 120px;
   }
 `;
 
