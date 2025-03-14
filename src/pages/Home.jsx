@@ -91,8 +91,8 @@ const Home = () => {
             <Title>Om mig</Title>
             <Description>
               Jag är en person som älskar att lära mig nya saker varje dag. Om
-              jag faller, reser jag mig upp igen. Jag vill bidra till projekt
-              och team som har en tydlig vision och där alla medlemmar är
+              jag faller, reser jag mig upp igen. GER INTE UPP! Har önskan att bidra till projekt
+              och team som har en tydlig vision, vill växa och där alla medlemmar är
               viktiga.
             </Description>
             <Description>
