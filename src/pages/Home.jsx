@@ -90,14 +90,18 @@ const Home = () => {
           <AboutText>
             <Title>Om mig</Title>
             <Description>
-              Jag är en person som älskar att lära mig nya saker varje dag. Om
-              jag faller, reser jag mig upp igen. GER INTE UPP! Har önskan att bidra till projekt
-              och team som har en tydlig vision, vill växa och där alla medlemmar är
-              viktiga.
+              Jag är en person som alltid försöker utvecklas. Skapar små projekt
+              för att förbättra mina tekniska kunskaper. Gillar att samarbeta
+              med andra i spännande projekt. Jag söker innovativa och växande
+              projekt, samt ett team där alla är välkomna, stöttar varandra och
+              arbetar tillsammans.
             </Description>
             <Description>
-              På min fritid är jag med min familj, skriver poesi och skapar små
-              projekt eftersom jag har hittat min stora passion: att koda.
+              På min fritid är jag med min familj och njuter av lugnet. Jag
+              läser och skriver poesi – jag är en kvinna mellan bokstäver och
+              kod. Tycker om hälsosam livsstil, att träna, vara positiv och
+              sprida glädje och välmående. Jag tycker om att hjälpa andra och
+              sprida ljus vart jag än går. Min favoritord: UTHÅLLIGHET.
             </Description>
             <SkillsContainer>
               {skills.map((skill, index) => (
