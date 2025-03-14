@@ -17,37 +17,9 @@ export const AboutSection = styled.section`
   padding: 80px 20px;
   position: relative;
   z-index: 1;
-  background: linear-gradient(
-    45deg,
-    rgb(28, 58, 109),
-    rgb(5, 21, 55),
-    rgb(24, 55, 110),
-    rgb(52, 152, 219),
-    rgb(41, 128, 185),
-    rgb(33, 97, 140),
-    rgb(24, 55, 110),
-    rgb(28, 58, 109)
-  );
-  background-size: 400% 400%;
-  animation: ${gradientAnimation} 15s ease infinite;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(255, 255, 255, 0.1),
-      transparent
-    );
-  }
 
   @media (max-width: 768px) {
     padding: 60px 15px;
@@ -61,17 +33,17 @@ export const AboutContent = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   padding: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   }
 
   @media (max-width: 768px) {
@@ -229,12 +201,12 @@ export const StatsContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   padding: 3rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   width: 100%;
   max-width: 1100px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   will-change: opacity, transform;
   animation: fadeIn 0.5s ease-out;

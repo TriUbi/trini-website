@@ -1,5 +1,6 @@
 import Banner from "../components/Banner";
 import omMigBild from "../assets/img/om-mig.png";
+import bannerBg from "../assets/img/banner.jpg";
 import {
   FaReact,
   FaNodeJs,
@@ -62,20 +63,28 @@ const gradientAnimation = keyframes`
 const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    45deg,
-    rgb(28, 58, 109),
-    rgb(5, 21, 55),
-    rgb(24, 55, 110),
-    rgb(52, 152, 219),
-    rgb(41, 128, 185),
-    rgb(33, 97, 140),
-    rgb(24, 55, 110),
-    rgb(28, 58, 109)
-  );
-  background-size: 400% 400%;
-  animation: ${gradientAnimation} 15s ease infinite;
+  background-image: url(${bannerBg});
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
   overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(53, 56, 83, 0.8);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
 `;
 
 const Home = () => {

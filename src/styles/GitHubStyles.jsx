@@ -1,33 +1,24 @@
-import styled, { keyframes } from "styled-components";
-
-const gradientAnimation = keyframes`
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-`;
+import styled from "styled-components";
+import bannerBg from "../assets/img/banner.jpg";
 
 export const GitHubSection = styled.div`
   text-align: center;
   padding: 40px 20px;
-  background: linear-gradient(
-    45deg,
-    rgb(28, 58, 109),
-    rgb(5, 21, 55),
-    rgb(24, 55, 110),
-    rgb(52, 152, 219),
-    rgb(41, 128, 185),
-    rgb(33, 97, 140),
-    rgb(24, 55, 110),
-    rgb(28, 58, 109)
-  );
-  background-size: 400% 400%;
-  animation: ${gradientAnimation} 15s ease infinite;
+  background-image: url(${bannerBg});
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(53, 56, 83, 0.8);
+    z-index: 1;
+  }
 `;
 
 export const GitHubLink = styled.a`
@@ -35,21 +26,30 @@ export const GitHubLink = styled.a`
   align-items: center;
   gap: 10px;
   padding: 15px 30px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 30px;
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(10px);
 
   &:hover {
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
   }
 
   svg {
     font-size: 1.5em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 12px 25px;
   }
 `;
