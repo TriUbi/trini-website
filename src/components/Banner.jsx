@@ -133,8 +133,9 @@ const Banner = () => {
         <h1>Trinidad Ubilla</h1>
         <h3>Fullstack Utvecklare</h3>
         <p>
-          Söker du en flexibel fullstack-utvecklare med problemlösningsfokus och
-          önskan att bidra till framgångsrika projekt?
+          Tycker du att din produkt är innovativ och full av potential? Letar du
+          efter en utvecklare med hunger och vilja att bidra till ditt företags
+          tillväxt?
         </p>
       </BannerText>
       <ButtonContainer>
