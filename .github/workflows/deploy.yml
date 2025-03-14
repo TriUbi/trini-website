@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - gh-pages
+      - main
 
 jobs:
   build-and-deploy:
@@ -24,9 +24,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to gh-pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: dist
-          branch: deploy
-          clean: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
