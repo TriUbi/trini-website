@@ -12,6 +12,16 @@ export const Title = styled.h1`
   font-size: 3rem;
   margin-bottom: 50px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
 `;
 
 export const ProjectsGrid = styled.div`
@@ -84,6 +94,9 @@ export const ProjectImage = styled.div`
 
 export const ProjectInfo = styled.div`
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 250px);
 `;
 
 export const ProjectTitle = styled.h3`
@@ -101,7 +114,7 @@ export const ProjectDescription = styled.p`
 export const TechStack = styled.div`
   display: flex;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: auto;
   flex-wrap: wrap;
 `;
 
@@ -129,6 +142,33 @@ export const TechIcon = styled.div`
 export const Links = styled.div`
   display: flex;
   gap: 15px;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ProgressText = styled.span`
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  margin-left: auto;
+  padding-left: 10px;
+
+  @keyframes ellipsis {
+    0% { content: ''; }
+    25% { content: '.'; }
+    50% { content: '..'; }
+    75% { content: '...'; }
+    100% { content: ''; }
+  }
+
+  &::after {
+    content: '';
+    animation: ellipsis 2s infinite;
+    display: inline-block;
+    width: 20px;
+    text-align: left;
+  }
 `;
 
 export const LinkButton = styled.a`
@@ -168,6 +208,17 @@ export const FilterContainer = styled.div`
   justify-content: center;
   gap: 20px;
   margin-bottom: 40px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 10px;
+    margin-bottom: 25px;
+  }
 `;
 
 export const FilterButton = styled.button`
@@ -185,5 +236,16 @@ export const FilterButton = styled.button`
   &:hover {
     background: rgba(52, 152, 219, 0.2);
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-radius: 20px;
   }
 `;

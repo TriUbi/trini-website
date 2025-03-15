@@ -48,6 +48,7 @@ import {
   LinkButton,
   FilterContainer,
   FilterButton,
+  ProgressText,
 } from "../styles/ProjectsStyles";
 
 const Projects = () => {
@@ -83,14 +84,15 @@ const Projects = () => {
     {
       title: "Bok Webshop",
       description:
-        "En modern bokhandel online byggd med React och Vite. Komplett e-handelslösning med kundvagn och betalning.",
+        "En modern bokhandel online med Stripe-integration. Användare kan registrera sig, lägga till produkter i kundvagnen och genomföra betalningar.",
       image: bokWebshop,
       color: "#2980b9",
       tech: [
         { icon: SiReact, name: "React" },
-        { icon: SiVite, name: "Vite" },
-        { icon: SiJavascript, name: "JavaScript" },
-        { icon: SiCss3, name: "CSS3" },
+        { icon: SiTypescript, name: "TypeScript" },
+        { icon: SiNodedotjs, name: "Node.js" },
+        { icon: SiExpress, name: "Express" },
+        { name: "Stripe API" },
       ],
       githubLink: "https://github.com/TriUbi/bok-webshop",
       hasDemo: true,
@@ -100,16 +102,18 @@ const Projects = () => {
     {
       title: "TastyBurger",
       description:
-        "En modern restauranghemsida med online-beställning och realtidsuppdateringar. Byggd med React och Node.js.",
+        "Ett grupprojekt utvecklat under utbildningen. En modern restauranghemsida med autentisering, realtidsuppdateringar och responsiv design. Projektet demonstrerar komponentbaserad arkitektur, state management och agilt teamarbete med Git/GitHub.",
       image: tastyBurger,
       color: "#e67e22",
       tech: [
         { icon: SiReact, name: "React" },
-        { icon: SiNodedotjs, name: "Node.js" },
-        { icon: SiExpress, name: "Express" },
-        { icon: SiMongodb, name: "MongoDB" },
+        { icon: SiTypescript, name: "TypeScript" },
+        { icon: SiFirebase, name: "Firebase" },
+        { icon: FaGithub, name: "GitHub" },
+        { name: "Sass" },
+        { name: "React Router" },
       ],
-      githubLink: "https://github.com/TriUbi/tastyburger",
+      githubLink: "https://github.com/TriUbi/the-restaurant-team",
       hasDemo: true,
       category: "code",
       showImage: true,
@@ -117,26 +121,31 @@ const Projects = () => {
     {
       title: "Todo List",
       description:
-        "En elegant och användarvänlig todo-lista med drag-and-drop funktionalitet.",
+        "En modern och interaktiv att-göra-lista med ljust/mörkt tema, uppgiftshantering och minimalistisk design. Byggd med React, TypeScript och Styled Components.",
       image: todoList,
       color: "#8e44ad",
       tech: [
         { icon: SiReact, name: "React" },
-        { icon: SiJavascript, name: "JavaScript" },
+        { icon: SiTypescript, name: "TypeScript" },
+        { icon: SiVite, name: "Vite" },
+        { name: "Styled-components" },
+        { name: "Ant Design" },
       ],
       githubLink: "https://github.com/TriUbi/todo-list",
+      demoLink: "https://triubi.github.io/my-todo-app/",
       hasDemo: true,
       category: "code",
-      showImage: false,
+      showImage: true,
     },
     {
       title: "Smash The Emoji",
       description:
-        "Ett roligt spel byggt med React där spelaren ska matcha emojis.",
+        "Ett interaktivt spel där spelaren ska klicka på så många rörliga emojis som möjligt innan tiden tar slut. Spelet innehåller ljudeffekter och konfettianimation för att fira slutpoängen.",
       image: smashEmoji,
       color: "#d35400",
       tech: [
-        { icon: SiReact, name: "React" },
+        { icon: SiHtml5, name: "HTML5" },
+        { icon: SiCss3, name: "CSS3" },
         { icon: SiJavascript, name: "JavaScript" },
       ],
       githubLink: "https://github.com/TriUbi/smash-emoji",
@@ -146,14 +155,20 @@ const Projects = () => {
     },
     {
       title: "Letters & Code",
-      description: "En personlig blogg som kombinerar poesi och programmering.",
+      description:
+        "En innovativ plattform där författare och läsare möts. Författare kan enkelt publicera och sälja sina verk genom Stripe-integration, medan läsare får tillgång till unik poesi och litteratur. Innehåller autentisering och realtidsdatabas. [Under utveckling]",
       image: lettersAndCode,
       color: "#c0392b",
       tech: [
         { icon: SiReact, name: "React" },
-        { icon: SiNodedotjs, name: "Node.js" },
+        { icon: SiTypescript, name: "TypeScript" },
+        { icon: SiFirebase, name: "Firebase" },
+        { name: "Stripe API" },
+        { name: "React Router" },
+        { name: "Styled-components" },
       ],
       githubLink: "https://github.com/TriUbi/letters-and-code",
+      demoLink: "https://letterandcode.web.app/",
       hasDemo: true,
       category: "code",
       showImage: true,
@@ -161,15 +176,16 @@ const Projects = () => {
     {
       title: "Fertility Calculator",
       description:
-        "Ett verktyg för att beräkna och spåra fertilitet med en intuitiv kalendervy.",
+        "En enkel fertilitetsräknare som hjälper användare att beräkna sin fertila period. Appen stöder både engelska och spanska, vilket gör det enkelt för användare att växla mellan språken. Byggd med fokus på användarvänlighet och tillgänglighet.",
       image: fertilityCalc,
       color: "#27ae60",
       tech: [
-        { icon: SiReact, name: "React" },
-        { icon: SiJavascript, name: "JavaScript" },
+        { icon: SiHtml5, name: "HTML5" },
         { icon: SiCss3, name: "CSS3" },
+        { icon: SiJavascript, name: "JavaScript" },
       ],
       githubLink: "https://github.com/TriUbi/fertility-calculator",
+      demoLink: "https://triubi.github.io/fertility-calulator-es-en/",
       hasDemo: true,
       category: "code",
       showImage: true,
@@ -220,6 +236,21 @@ const Projects = () => {
       demoLink: "https://nicatak.se",
       hasDemo: true,
       category: "wordpress",
+    },
+    {
+      title: "Subscription Tracker",
+      description:
+        "En modern webbapplikation som hjälper användare att hantera och spåra månatliga prenumerationstjänster. Håll koll på din budget och övervaka dina streaming-utgifter på ett ställe.",
+      color: "#3498db",
+      tech: [
+        { icon: SiReact, name: "React" },
+        { icon: SiVite, name: "Vite" },
+        { icon: SiCss3, name: "CSS3" },
+      ],
+      githubLink: "https://github.com/TriUbi/Subscription_tracker",
+      hasDemo: true,
+      category: "code",
+      showImage: false,
     },
   ];
 
@@ -279,7 +310,7 @@ const Projects = () => {
                     title="Denna demo är skyddad av upphovsrätt"
                     style={{ cursor: "not-allowed" }}
                   >
-                    <FaLock /> Demo
+                    <FaLock /> Demo <ProgressText>in progress</ProgressText>
                   </LinkButton>
                 ) : project.category === "code" ? (
                   <>
@@ -291,11 +322,26 @@ const Projects = () => {
                       <FaGithub />
                     </LinkButton>
                     <LinkButton
-                      href={project.githubLink}
+                      href={
+                        project.title === "Bok Webshop"
+                          ? "https://github.com/TriUbi/Book-Webshop"
+                          : project.title === "TastyBurger"
+                          ? "https://github.com/TriUbi/the-restaurant-team"
+                          : project.demoLink || project.githubLink
+                      }
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaExternalLinkAlt /> Demo
+                      <FaExternalLinkAlt />{" "}
+                      {project.title === "Bok Webshop" ||
+                      project.title === "TastyBurger"
+                        ? "Repo"
+                        : "Demo"}
+                      {(project.title === "Letters & Code" ||
+                        project.title === "Subscription Tracker" ||
+                        project.title === "Bok Webshop") && (
+                        <ProgressText>in progress</ProgressText>
+                      )}
                     </LinkButton>
                   </>
                 ) : (
