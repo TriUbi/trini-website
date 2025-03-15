@@ -143,7 +143,7 @@ const Banner = () => {
         <p>
           Tycker du att din produkt är innovativ och full av potential? Letar du
           efter en utvecklare med hunger och vilja att bidra till ditt företags
-          tillväxt?
+          tillväxt? Då är jag just den personen du söker!
         </p>
       </BannerText>
       <ButtonContainer>
