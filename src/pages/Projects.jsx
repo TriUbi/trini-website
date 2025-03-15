@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { FaGithub, FaExternalLinkAlt, FaWordpress } from "react-icons/fa";
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaWordpress,
+  FaLock,
+} from "react-icons/fa";
 import {
   SiReact,
   SiNodedotjs,
@@ -268,23 +273,38 @@ const Projects = () => {
                   ))}
               </TechStack>
               <Links>
-                {project.githubLink && (
+                {project.title === "Parents App" ? (
                   <LinkButton
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    as="span"
+                    title="Denna demo är skyddad av upphovsrätt"
+                    style={{ cursor: "not-allowed" }}
                   >
-                    <FaGithub /> Kod
+                    <FaLock /> Demo
                   </LinkButton>
-                )}
-                {project.hasDemo && project.demoLink && (
+                ) : project.category === "code" ? (
+                  <>
+                    <LinkButton
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaGithub />
+                    </LinkButton>
+                    <LinkButton
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaExternalLinkAlt /> Demo
+                    </LinkButton>
+                  </>
+                ) : (
                   <LinkButton
                     href={project.demoLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FaExternalLinkAlt />{" "}
-                    {project.category === "wordpress" ? "Link" : "Demo"}
+                    <FaExternalLinkAlt /> Link
                   </LinkButton>
                 )}
               </Links>

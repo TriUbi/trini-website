@@ -139,6 +139,24 @@ export const LinkButton = styled.a`
   gap: 5px;
   font-size: 0.9rem;
   transition: color 0.3s ease;
+  position: relative;
+
+  &[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+  }
 
   &:hover {
     color: #3498db;
