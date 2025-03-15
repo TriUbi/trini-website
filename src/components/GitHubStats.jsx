@@ -14,6 +14,10 @@ const GitHubStatsContainer = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin: 2rem auto;
   max-width: 900px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Title = styled.h2`
