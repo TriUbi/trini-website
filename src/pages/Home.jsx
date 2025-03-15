@@ -32,6 +32,7 @@ import {
   AboutImage,
 } from "../styles/AboutStyles.jsx";
 import { GitHubSection, GitHubLink } from "../styles/GitHubStyles.jsx";
+import MessageBubble from "../components/MessageBubble";
 
 const MainContainer = styled.main`
   display: flex;
@@ -83,50 +84,53 @@ const Home = () => {
   ];
 
   return (
-    <MainContainer>
-      <Banner />
-      <AboutSection>
-        <AboutContent>
-          <AboutText>
-            <Title>Om mig</Title>
-            <Description>
-              Jag är en person som alltid försöker utvecklas. Skapar små projekt
-              för att förbättra mina tekniska kunskaper. Gillar att samarbeta
-              med andra i spännande projekt. Jag söker innovativa och växande
-              projekt, samt ett team där alla är välkomna, stöttar varandra och
-              arbetar tillsammans.
-            </Description>
-            <Description>
-              På min fritid är jag med min familj och njuter av lugnet. Jag
-              läser och skriver poesi – jag är en kvinna mellan bokstäver och
-              kod. Tycker om hälsosam livsstil, att träna, vara positiv och
-              sprida glädje och välmående. Jag tycker om att hjälpa andra och
-              sprida ljus vart jag än går. Min favoritord: UTHÅLLIGHET.
-            </Description>
-            <SkillsContainer>
-              {skills.map((skill, index) => (
-                <SkillTag key={index}>
-                  {skill.icon} {skill.name}
-                </SkillTag>
-              ))}
-            </SkillsContainer>
-          </AboutText>
-        </AboutContent>
-      </AboutSection>
-      <GitHubStats />
-      <GitHubSection>
-        <GitHubLink
-          href="https://github.com/TriUbi"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithub /> Check out my projects on GitHub
-        </GitHubLink>
-      </GitHubSection>
-      <ImageWrapper>
-        <AboutImage src={omMigBild} alt="Om mig illustration" />
-      </ImageWrapper>
-    </MainContainer>
+    <>
+      <MessageBubble />
+      <MainContainer>
+        <Banner />
+        <AboutSection>
+          <AboutContent>
+            <AboutText>
+              <Title>Om mig</Title>
+              <Description>
+                Jag är en person som alltid försöker utvecklas. Skapar små
+                projekt för att förbättra mina tekniska kunskaper. Gillar att
+                samarbeta med andra i spännande projekt. Jag söker innovativa
+                och växande projekt, samt ett team där alla är välkomna, stöttar
+                varandra och arbetar tillsammans.
+              </Description>
+              <Description>
+                På min fritid är jag med min familj och njuter av lugnet. Jag
+                läser och skriver poesi – jag är en kvinna mellan bokstäver och
+                kod. Tycker om hälsosam livsstil, att träna, vara positiv och
+                sprida glädje och välmående. Jag tycker om att hjälpa andra och
+                sprida ljus vart jag än går. Min favoritord: UTHÅLLIGHET.
+              </Description>
+              <SkillsContainer>
+                {skills.map((skill, index) => (
+                  <SkillTag key={index}>
+                    {skill.icon} {skill.name}
+                  </SkillTag>
+                ))}
+              </SkillsContainer>
+            </AboutText>
+          </AboutContent>
+        </AboutSection>
+        <GitHubStats />
+        <GitHubSection>
+          <GitHubLink
+            href="https://github.com/TriUbi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub /> Check out my projects on GitHub
+          </GitHubLink>
+        </GitHubSection>
+        <ImageWrapper>
+          <AboutImage src={omMigBild} alt="Om mig illustration" />
+        </ImageWrapper>
+      </MainContainer>
+    </>
   );
 };
 
