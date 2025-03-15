@@ -192,7 +192,8 @@ const Projects = () => {
     },
     {
       title: "Estellar",
-      description: "E-handelsplattform för mode och accessoarer.",
+      description:
+        "Webbyrå under utveckling med fokus på moderna digitala lösningar.",
       image: estellarSite,
       color: "#2c3e50",
       tech: [{ icon: FaWordpress, name: "WordPress" }],
@@ -203,7 +204,7 @@ const Projects = () => {
     {
       title: "Cleander",
       description:
-        "Professionell företagshemsida för städtjänster med bokningssystem.",
+        "Professionell företagshemsida för städtjänster med bokningssystem. Migrerad från Wix till WordPress för bättre prestanda och anpassningsbarhet.",
       image: cleanderSite,
       color: "#21759b",
       tech: [{ icon: FaWordpress, name: "WordPress" }],
@@ -213,7 +214,8 @@ const Projects = () => {
     },
     {
       title: "Prissida",
-      description: "Modern prissättningssida med dynamiska priskalkylatorer.",
+      description:
+        "Modern prissättningssida för Wndy AB med två dynamiska priskalkylatorer utvecklade med JavaScript. Hjälper kunder att enkelt beräkna kostnader för olika tjänster.",
       image: prissidaSite,
       color: "#96588a",
       tech: [
@@ -229,7 +231,7 @@ const Projects = () => {
     {
       title: "Nicatak",
       description:
-        "Företagshemsida med fokus på visuell presentation och kundinteraktion.",
+        "Företagshemsida för en takläggare firma. Modern design med fokus på att presentera deras tjänster och expertis inom takläggning. Migrerad från Wix till WordPress för förbättrad funktionalitet.",
       image: nicatakSite,
       color: "#34495e",
       tech: [{ icon: FaWordpress, name: "WordPress" }],
