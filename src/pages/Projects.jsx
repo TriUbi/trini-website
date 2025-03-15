@@ -102,7 +102,7 @@ const Projects = () => {
     {
       title: "TastyBurger",
       description:
-        "Ett grupprojekt utvecklat under utbildningen. En modern restauranghemsida med autentisering, realtidsuppdateringar och responsiv design. Projektet demonstrerar komponentbaserad arkitektur, state management och agilt teamarbete med Git/GitHub.",
+        "Ett grupprojekt utvecklat under utbildningen. En modern restauranghemsida. Projektet demonstrerar komponentbaserad arkitektur, state management och agilt teamarbete med Git/GitHub.",
       image: tastyBurger,
       color: "#e67e22",
       tech: [
