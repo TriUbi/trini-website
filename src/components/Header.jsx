@@ -74,6 +74,7 @@ const Header = () => {
       </Logo>
       <Nav>
         <Link to="/">Hem</Link>
+        <Link to="/projekt">Projekt</Link>
         <Link to="/kontakt">Kontakt</Link>
       </Nav>
     </HeaderContainer>
