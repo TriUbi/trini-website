@@ -18,6 +18,10 @@ const Cursor = styled.div`
   &::before {
     content: "🪄";
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Trail = styled.div`
@@ -31,21 +35,37 @@ const Trail = styled.div`
   transition: opacity 0.3s ease;
   opacity: ${(props) => (props.visible ? 1 : 0)};
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const MagicCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [trail, setTrail] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add resize listener
+    window.addEventListener("resize", checkMobile);
+
     const updatePosition = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
 
       // Add new point to trail
       setTrail((prev) =>
         [...prev, { x: e.clientX, y: e.clientY, id: Date.now() }].slice(-20)
-      ); // Keep only last 20 points for a longer trail
+      );
     };
 
     const handleMouseOver = (e) => {
@@ -63,16 +83,25 @@ const MagicCursor = () => {
       setIsHovering(false);
     };
 
-    window.addEventListener("mousemove", updatePosition);
-    document.addEventListener("mouseover", handleMouseOver);
-    document.addEventListener("mouseout", handleMouseOut);
+    // Only add event listeners if not mobile
+    if (!isMobile) {
+      window.addEventListener("mousemove", updatePosition);
+      document.addEventListener("mouseover", handleMouseOver);
+      document.addEventListener("mouseout", handleMouseOut);
+    }
 
     return () => {
+      window.removeEventListener("resize", checkMobile);
       window.removeEventListener("mousemove", updatePosition);
       document.removeEventListener("mouseover", handleMouseOver);
       document.removeEventListener("mouseout", handleMouseOut);
     };
-  }, []);
+  }, [isMobile]);
+
+  // Don't render anything on mobile
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>
