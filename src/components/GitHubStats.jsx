@@ -71,10 +71,6 @@ const GitHubStats = () => {
       </CalendarContainer>
       <StatsCards>
         <StatsCard
-          src="https://github-readme-stats.vercel.app/api?username=TriUbi&show_icons=true&theme=dark&hide_border=true&count_private=true"
-          alt="GitHub Stats"
-        />
-        <StatsCard
           src="https://github-readme-streak-stats.herokuapp.com/?user=TriUbi&theme=dark&hide_border=true"
           alt="GitHub Streak Stats"
         />
