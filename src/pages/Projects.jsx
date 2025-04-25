@@ -29,6 +29,8 @@ import parentsApp from "../assets/utveckling/parentsapp.png";
 import tastyBurger from "../assets/utveckling/tastyburger.png";
 import modbusVideo from "../assets/videos/Modbus-simulation.mov";
 import todoVideo from "../assets/videos/Todo-app.mov";
+import smashEmojisVideo from "../assets/videos/smashemojis.mov";
+import parentsAppVideo from "../assets/videos/parentsappdemo.mov";
 
 import cleanderSite from "../assets/wordpress/cleander.png";
 import prissidaSite from "../assets/wordpress/prissida.png";
@@ -84,6 +86,7 @@ const Projects = () => {
       hasDemo: true,
       category: "code",
       showImage: true,
+      video: parentsAppVideo,
     },
     {
       title: "Bok Webshop",
@@ -154,9 +157,11 @@ const Projects = () => {
         { icon: SiJavascript, name: "JavaScript" },
       ],
       githubLink: "https://github.com/TriUbi/smash-emoji",
+      demoLink: "https://triubi.github.io/smash-the-emojis/",
       hasDemo: true,
       category: "code",
       showImage: true,
+      video: smashEmojisVideo,
     },
     {
       title: "Letters & Code",
