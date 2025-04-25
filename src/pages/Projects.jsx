@@ -36,6 +36,7 @@ import cleanderSite from "../assets/wordpress/cleander.png";
 import prissidaSite from "../assets/wordpress/prissida.png";
 import estellarSite from "../assets/wordpress/estellar.png";
 import nicatakSite from "../assets/wordpress/nicatak.png";
+import catvisualsSite from "../assets/wordpress/catvisuals.png";
 
 import {
   ProjectsContainer,
@@ -208,6 +209,17 @@ const Projects = () => {
       color: "#2c3e50",
       tech: [{ icon: FaWordpress, name: "WordPress" }],
       demoLink: "https://estellar.se",
+      hasDemo: true,
+      category: "wordpress",
+    },
+    {
+      title: "CatVisuals",
+      description:
+        "Modern företagshemsida för en professionell fotograf. Sidan presenterar olika fotopaket, portfolio och bokningssystem. Designad med fokus på visuell presentation och användarvänlighet.",
+      image: catvisualsSite,
+      color: "#2c3e50",
+      tech: [{ icon: FaWordpress, name: "WordPress" }],
+      demoLink: "https://catvisuals.se",
       hasDemo: true,
       category: "wordpress",
     },
