@@ -296,23 +296,7 @@ const Projects = () => {
       category: "code",
       showImage: false,
     },
-    {
-      title: "Portfolio",
-      description:
-        "Min personliga portfolio-webbplats byggd med moderna tekniker. Innehåller interaktiva element, responsiv design och en magisk muspekare. Visar mina projekt och färdigheter inom webbutveckling.",
-      color: "#2c3e50",
-      tech: [
-        { icon: SiReact, name: "React" },
-        { icon: SiVite, name: "Vite" },
-        { icon: SiTypescript, name: "TypeScript" },
-        { name: "Styled-components" },
-      ],
-      githubLink: "https://github.com/TriUbi/minportfolio.github.io",
-      demoLink: "https://triubi.github.io/minportfolio.github.io/",
-      hasDemo: true,
-      category: "code",
-      showImage: false,
-    },
+    
   ];
 
   const filteredProjects = projects.filter(
