@@ -31,6 +31,7 @@ import modbusVideo from "../assets/videos/Modbus-simulation.mov";
 import todoVideo from "../assets/videos/Todo-app.mov";
 import smashEmojisVideo from "../assets/videos/smashemojis.mov";
 import parentsAppVideo from "../assets/videos/parentsappdemo.mov";
+import calculadoraVideo from "../assets/videos/calculadora.mov";
 
 import cleanderSite from "../assets/wordpress/cleander.png";
 import prissidaSite from "../assets/wordpress/prissida.png";
@@ -200,6 +201,7 @@ const Projects = () => {
       hasDemo: true,
       category: "code",
       showImage: true,
+      video: calculadoraVideo,
     },
     {
       title: "Estellar",
