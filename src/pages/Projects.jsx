@@ -27,6 +27,7 @@ import lettersAndCode from "../assets/utveckling/lettersandcode.png";
 import smashEmoji from "../assets/utveckling/smash-the-emoji.png";
 import parentsApp from "../assets/utveckling/parentsapp.png";
 import tastyBurger from "../assets/utveckling/tastyburger.png";
+import modbusVideo from "../assets/videos/Modbus-simulation.mov";
 
 import cleanderSite from "../assets/wordpress/cleander.png";
 import prissidaSite from "../assets/wordpress/prissida.png";
@@ -49,10 +50,12 @@ import {
   FilterContainer,
   FilterButton,
   ProgressText,
+  ShowMoreButton,
 } from "../styles/ProjectsStyles";
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [visibleProjects, setVisibleProjects] = useState(6);
 
   const projects = [
     {
@@ -240,6 +243,24 @@ const Projects = () => {
       category: "wordpress",
     },
     {
+      title: "Modbus-Simulator Web App",
+      description:
+        "Detta projekt är ett fullstack web app för att visa och styra enheter i ett sjukhusmiljö via en Modbus-simulator.",
+      color: "#2c3e50",
+      tech: [
+        { name: "C#" },
+        { name: "ASP.NET Core Web API" },
+        { name: "Blazor Server" },
+        { icon: SiDocker, name: "Docker" },
+        { name: "MySQL" },
+      ],
+      githubLink: "https://github.com/TriUbi/modbusTest-v1",
+      hasDemo: false,
+      category: "code",
+      showImage: true,
+      video: modbusVideo,
+    },
+    {
       title: "Subscription Tracker",
       description:
         "En modern webbapplikation som hjälper användare att hantera och spåra månatliga prenumerationstjänster. Håll koll på din budget och övervaka dina streaming-utgifter på ett ställe.",
@@ -254,11 +275,34 @@ const Projects = () => {
       category: "code",
       showImage: false,
     },
+    {
+      title: "Portfolio",
+      description:
+        "Min personliga portfolio-webbplats byggd med moderna tekniker. Innehåller interaktiva element, responsiv design och en magisk muspekare. Visar mina projekt och färdigheter inom webbutveckling.",
+      color: "#2c3e50",
+      tech: [
+        { icon: SiReact, name: "React" },
+        { icon: SiVite, name: "Vite" },
+        { icon: SiTypescript, name: "TypeScript" },
+        { name: "Styled-components" },
+      ],
+      githubLink: "https://github.com/TriUbi/minportfolio.github.io",
+      demoLink: "https://triubi.github.io/minportfolio.github.io/",
+      hasDemo: true,
+      category: "code",
+      showImage: false,
+    },
   ];
 
   const filteredProjects = projects.filter(
     (project) => activeFilter === "all" || project.category === activeFilter
   );
+
+  const handleShowMore = () => {
+    setVisibleProjects((prev) => prev + 6);
+  };
+
+  const showMoreButton = visibleProjects < filteredProjects.length;
 
   return (
     <ProjectsContainer>
@@ -266,33 +310,50 @@ const Projects = () => {
       <FilterContainer>
         <FilterButton
           active={activeFilter === "all"}
-          onClick={() => setActiveFilter("all")}
+          onClick={() => {
+            setActiveFilter("all");
+            setVisibleProjects(6);
+          }}
         >
           Alla Projekt
         </FilterButton>
         <FilterButton
           active={activeFilter === "code"}
-          onClick={() => setActiveFilter("code")}
+          onClick={() => {
+            setActiveFilter("code");
+            setVisibleProjects(6);
+          }}
         >
-          Utvecklingsprojekt
+          Programmering
         </FilterButton>
         <FilterButton
           active={activeFilter === "wordpress"}
-          onClick={() => setActiveFilter("wordpress")}
+          onClick={() => {
+            setActiveFilter("wordpress");
+            setVisibleProjects(6);
+          }}
         >
           WordPress
         </FilterButton>
       </FilterContainer>
       <ProjectsGrid>
-        {filteredProjects.map((project, index) => (
+        {filteredProjects.slice(0, visibleProjects).map((project, index) => (
           <ProjectCard key={index}>
             <ProjectImage
               color={project.color}
               image={project.image}
               category={project.category}
               showImage={project.category === "wordpress" || project.showImage}
+              video={project.video}
             >
-              {project.category === "code" && !project.showImage && <SiReact />}
+              {project.video ? (
+                <video autoPlay loop muted playsInline poster={project.image}>
+                  <source src={project.video} type="video/mp4" />
+                  Tu navegador no soporta el tag de video.
+                </video>
+              ) : (
+                project.category === "code" && !project.showImage && <SiReact />
+              )}
             </ProjectImage>
             <ProjectInfo>
               <ProjectTitle>{project.title}</ProjectTitle>
@@ -360,6 +421,11 @@ const Projects = () => {
           </ProjectCard>
         ))}
       </ProjectsGrid>
+      {showMoreButton && (
+        <ShowMoreButton onClick={handleShowMore}>
+          Visa fler projekt
+        </ShowMoreButton>
+      )}
     </ProjectsContainer>
   );
 };

@@ -53,21 +53,32 @@ export const ProjectImage = styled.div`
   background: ${(props) =>
     props.showImage ? "transparent" : props.color || "#2c3e50"};
   background-image: ${(props) =>
-    props.showImage ? `url(${props.image})` : "none"};
+    props.showImage && !props.video ? `url(${props.image})` : "none"};
   background-size: ${(props) => (props.showImage ? "cover" : "contain")};
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${(props) => (props.showImage ? "10px" : "20px")};
+  padding: 0;
   position: relative;
   overflow: hidden;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: ${(props) => props.color || "#2c3e50"};
+  }
 
   svg {
     font-size: 5rem;
     color: rgba(255, 255, 255, 0.9);
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+    z-index: 1;
   }
 
   &::before {
@@ -78,15 +89,16 @@ export const ProjectImage = styled.div`
     right: 0;
     bottom: 0;
     background: ${(props) =>
-      props.showImage
+      props.showImage && !props.video
         ? "none"
         : "linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1))"};
     transition: all 0.3s ease;
+    z-index: 1;
   }
 
   &:hover::before {
     background: ${(props) =>
-      props.showImage
+      props.showImage && !props.video
         ? "none"
         : "linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05))"};
   }
@@ -155,15 +167,25 @@ export const ProgressText = styled.span`
   padding-left: 10px;
 
   @keyframes ellipsis {
-    0% { content: ''; }
-    25% { content: '.'; }
-    50% { content: '..'; }
-    75% { content: '...'; }
-    100% { content: ''; }
+    0% {
+      content: "";
+    }
+    25% {
+      content: ".";
+    }
+    50% {
+      content: "..";
+    }
+    75% {
+      content: "...";
+    }
+    100% {
+      content: "";
+    }
   }
 
   &::after {
-    content: '';
+    content: "";
     animation: ellipsis 2s infinite;
     display: inline-block;
     width: 20px;
@@ -247,5 +269,21 @@ export const FilterButton = styled.button`
     padding: 6px 12px;
     font-size: 0.85rem;
     border-radius: 20px;
+  }
+`;
+
+export const ShowMoreButton = styled.button`
+  background: rgba(53, 56, 83, 0.8);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 30px auto;
+  display: block;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
   }
 `;
