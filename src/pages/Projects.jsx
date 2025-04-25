@@ -28,6 +28,7 @@ import smashEmoji from "../assets/utveckling/smash-the-emoji.png";
 import parentsApp from "../assets/utveckling/parentsapp.png";
 import tastyBurger from "../assets/utveckling/tastyburger.png";
 import modbusVideo from "../assets/videos/Modbus-simulation.mov";
+import todoVideo from "../assets/videos/Todo-app.mov";
 
 import cleanderSite from "../assets/wordpress/cleander.png";
 import prissidaSite from "../assets/wordpress/prissida.png";
@@ -139,6 +140,7 @@ const Projects = () => {
       hasDemo: true,
       category: "code",
       showImage: true,
+      video: todoVideo,
     },
     {
       title: "Smash The Emoji",
