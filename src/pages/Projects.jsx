@@ -38,6 +38,8 @@ import prissidaSite from "../assets/wordpress/prissida.png";
 import estellarSite from "../assets/wordpress/estellar.png";
 import nicatakSite from "../assets/wordpress/nicatak.png";
 import catvisualsSite from "../assets/wordpress/catvisuals.png";
+import kvinnogrowSite from "../assets/wordpress/kvinnogrow.png";
+import badrumsrenoveringSite from "../assets/wordpress/badrumsrenovering.png";
 
 import {
   ProjectsContainer,
@@ -282,6 +284,17 @@ const Projects = () => {
       video: modbusVideo,
     },
     {
+      title: "KvinnoGrow",
+      description:
+        "En inspirerande plattform för kvinnor som vill växa, connecta och leda. Sidan erbjuder webbinarier, mentorskap och ett stöttande nätverk för kvinnliga entreprenörer.",
+      image: kvinnogrowSite,
+      color: "#2c3e50",
+      tech: [{ icon: FaWordpress, name: "WordPress" }],
+      demoLink: "https://kvinnogrow.se",
+      hasDemo: true,
+      category: "wordpress",
+    },
+    {
       title: "Subscription Tracker",
       description:
         "En modern webbapplikation som hjälper användare att hantera och spåra månatliga prenumerationstjänster. Håll koll på din budget och övervaka dina streaming-utgifter på ett ställe.",
@@ -296,7 +309,17 @@ const Projects = () => {
       category: "code",
       showImage: false,
     },
-    
+    {
+      title: "Stockholms Badrumsrenovering",
+      description:
+        "Professionell hemsida för badrumsrenovering i Stockholm. Innehåller en interaktiv kalkylator, bokningssystem och detaljerad information om tjänsterna. Designad för att ge kunderna en tydlig överblick av processen och kostnader.",
+      image: badrumsrenoveringSite,
+      color: "#2c3e50",
+      tech: [{ icon: FaWordpress, name: "WordPress" }],
+      demoLink: "https://stockholmsbadrum.se",
+      hasDemo: true,
+      category: "wordpress",
+    },
   ];
 
   const filteredProjects = projects.filter(
